@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics;
+using System.Runtime.Intrinsics.Arm;
 using System.Runtime.Intrinsics.X86;
 using Internal.Runtime.CompilerServices;
 
@@ -582,6 +583,114 @@ namespace System.Buffers.Text
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static unsafe void AvdSimd64Decode(ref byte* srcBytes, ref byte* destBytes, byte* srcEnd, int sourceLength, int destLength, byte* srcStart, byte* destStart)
+        {
+            byte* src = srcBytes;
+            byte* dest = destBytes;
+
+            var offset = Vector128.Create((byte)63);
+
+            Vector128<byte> lookup0_0, lookup0_1, lookup0_2, lookup0_3;
+            lookup0_0 = ReadVector<Vector128<byte>>(s_advSimd64DecodeLut1);
+            lookup0_1 = ReadVector<Vector128<byte>>(s_advSimd64DecodeLut1);
+            lookup0_2 = ReadVector<Vector128<byte>>(s_advSimd64DecodeLut1);
+            lookup0_3 = ReadVector<Vector128<byte>>(s_advSimd64DecodeLut1);
+
+            Vector128<byte> lookup1_0, lookup1_1, lookup1_2, lookup1_3;
+            lookup1_0 = ReadVector<Vector128<byte>>(s_advSimd64DecodeLut2);
+            lookup1_1 = ReadVector<Vector128<byte>>(s_advSimd64DecodeLut2);
+            lookup1_2 = ReadVector<Vector128<byte>>(s_advSimd64DecodeLut2);
+            lookup1_3 = ReadVector<Vector128<byte>>(s_advSimd64DecodeLut2);
+
+            do
+            {
+                Vector128<byte> int0, int1, int2, int3;
+                Vector128<byte> tmp0, tmp1, tmp2, tmp3;
+                Vector128<byte> res0, res1, res2;
+
+                // Load 64 bytes and deinterleave:
+                Vector128<byte> str0, str1, str2, str3;
+
+                AssertRead<Vector128<byte>>(src + 48, srcStart, sourceLength);
+                str0 = AdvSimd.LoadVector128(src);
+                str1 = AdvSimd.LoadVector128(src + 16);
+                str2 = AdvSimd.LoadVector128(src + 32);
+                str3 = AdvSimd.LoadVector128(src + 48);
+
+                // Needs intrinsic:
+                //      UnsignedSaturatingSubtract - vqsubq_u8 - UQSUB
+                static Vector128<byte> UnsignedSaturatingSubtract(Vector128<byte> left, Vector128<byte> right) => throw new NotImplementedException();
+
+                // Needs intrinsics:
+                //      UnsignedShiftRight - vshrq_n_u8 - USHR
+                //      UnsignedShiftLeft - vshlq_n_u8 - USHL
+                static Vector128<byte> UnsignedShiftRight(Vector128<byte> vector, int count) => throw new NotImplementedException();
+                static Vector128<byte> UnsignedShiftLeft(Vector128<byte> vector, int count) => throw new NotImplementedException();
+
+                // Get indices for 2nd LUT
+                tmp0 = UnsignedSaturatingSubtract(str0, offset);
+                tmp1 = UnsignedSaturatingSubtract(str1, offset);
+                tmp2 = UnsignedSaturatingSubtract(str2, offset);
+                tmp3 = UnsignedSaturatingSubtract(str3, offset);
+
+                // Needs intrinsics:
+                //      TableLookup - vqtbl4q_u8 - TBL
+                //      TableLookupExtension - vqtbx4q_u8 - TBX
+                static Vector128<byte> TableLookup(Vector128<byte> l0, Vector128<byte> l1, Vector128<byte> l2, Vector128<byte> l3, Vector128<byte> right) => throw new NotImplementedException();
+                static Vector128<byte> TableLookupExtension(Vector128<byte> a, Vector128<byte> l0, Vector128<byte> l1, Vector128<byte> l2, Vector128<byte> l3, Vector128<byte> right) => throw new NotImplementedException();
+
+                // Get values from 1st LUT
+                int0 = TableLookup(lookup0_0, lookup0_1, lookup0_2, lookup0_3, str0);
+                int1 = TableLookup(lookup0_0, lookup0_1, lookup0_2, lookup0_3, str1);
+                int2 = TableLookup(lookup0_0, lookup0_1, lookup0_2, lookup0_3, str2);
+                int3 = TableLookup(lookup0_0, lookup0_1, lookup0_2, lookup0_3, str3);
+
+                // Get values from 2nd LUT
+                tmp0 = TableLookupExtension(tmp0, lookup1_0, lookup1_1, lookup1_2, lookup1_3, tmp0);
+                tmp1 = TableLookupExtension(tmp1, lookup1_0, lookup1_1, lookup1_2, lookup1_3, tmp1);
+                tmp2 = TableLookupExtension(tmp2, lookup1_0, lookup1_1, lookup1_2, lookup1_3, tmp2);
+                tmp3 = TableLookupExtension(tmp3, lookup1_0, lookup1_1, lookup1_2, lookup1_3, tmp3);
+
+                // Get final values
+                str0 = AdvSimd.Or(int0, tmp0);
+                str1 = AdvSimd.Or(int1, tmp1);
+                str2 = AdvSimd.Or(int2, tmp2);
+                str3 = AdvSimd.Or(int3, tmp3);
+
+                // Check for invalid input, any value larger than 63:
+                Vector128<byte> classified = AdvSimd.CompareGreaterThan(str0, offset);
+                classified = AdvSimd.Or(classified, AdvSimd.CompareGreaterThan(str1, offset));
+                classified = AdvSimd.Or(classified, AdvSimd.CompareGreaterThan(str2, offset));
+                classified = AdvSimd.Or(classified, AdvSimd.CompareGreaterThan(str3, offset));
+
+                // check that all bits are zero:
+                if (AdvSimd.Arm64.MaxAcross(classified).ToScalar() != 0U)
+                {
+                    break;
+                }
+
+                // Compress four bytes into three:
+                res0 = AdvSimd.Or(UnsignedShiftLeft(str0, 2), UnsignedShiftRight(str1, 4));
+                res1 = AdvSimd.Or(UnsignedShiftLeft(str1, 4), UnsignedShiftRight(str2, 2));
+                res2 = AdvSimd.Or(UnsignedShiftLeft(str2, 6), str3);
+
+                // TODO translate this triple VST1 to a single VST3
+                // Only assert last write
+                AssertWrite<Vector128<sbyte>>(dest + 32, destStart, destLength);
+                AdvSimd.Store(dest, res0);
+                AdvSimd.Store(dest + 16, res1);
+                AdvSimd.Store(dest + 32, res2);
+
+                src += 64;
+                dest += 48;
+            }
+            while (src <= srcEnd);
+
+            srcBytes = src;
+            destBytes = dest;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private static unsafe int Decode(byte* encodedBytes, ref sbyte decodingMap)
         {
             uint t0 = encodedBytes[0];
@@ -714,6 +823,22 @@ namespace System.Buffers.Text
             -65, -65, -71, -71,
             0, 0, 0, 0,
             0, 0, 0, 0
+        };
+
+        private static ReadOnlySpan<byte> s_advSimd64DecodeLut1 => new byte[]
+        {
+            255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
+            255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255,
+            255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 255, 62, 255, 255, 255, 63,
+            52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 255, 255, 255, 255, 255, 255
+        };
+
+        private static ReadOnlySpan<byte> s_advSimd64DecodeLut2 => new byte[]
+        {
+            0, 255,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13,
+            14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 255, 255, 255, 255,
+            255, 255, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39,
+            40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 255, 255, 255, 255
         };
     }
 }

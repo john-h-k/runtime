@@ -17,6 +17,12 @@ namespace System.Buffers.Text
             return Unsafe.As<sbyte, TVector>(ref tmp);
         }
 
+        private static TVector ReadVector<TVector>(ReadOnlySpan<byte> data)
+        {
+            ref byte tmp = ref MemoryMarshal.GetReference(data);
+            return Unsafe.As<byte, TVector>(ref tmp);
+        }
+
         [Conditional("DEBUG")]
         private static unsafe void AssertRead<TVector>(byte* src, byte* srcStart, int srcLength)
         {

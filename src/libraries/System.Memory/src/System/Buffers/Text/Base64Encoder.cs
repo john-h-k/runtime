@@ -6,6 +6,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics;
 using System.Runtime.Intrinsics.X86;
+using System.Runtime.Intrinsics.Arm;
 using Internal.Runtime.CompilerServices;
 
 namespace System.Buffers.Text
@@ -80,6 +81,13 @@ namespace System.Buffers.Text
                     if (Ssse3.IsSupported && (end >= src))
                     {
                         Ssse3Encode(ref src, ref dest, end, maxSrcLength, destLength, srcBytes, destBytes);
+
+                        if (src == srcEnd)
+                            goto DoneExit;
+                    }
+                    if (AdvSimd.Arm64.IsSupported)
+                    {
+                        AdvSimd64Encode(ref src, ref dest, end, maxSrcLength, destLength, srcBytes, destBytes);
 
                         if (src == srcEnd)
                             goto DoneExit;
@@ -466,6 +474,85 @@ namespace System.Buffers.Text
 
                 src += 12;
                 dest += 16;
+            }
+            while (src <= srcEnd);
+
+            srcBytes = src;
+            destBytes = dest;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static unsafe void AdvSimd64Encode(ref byte* srcBytes, ref byte* destBytes, byte* srcEnd, int sourceLength, int destLength, byte* srcStart, byte* destStart)
+        {
+            byte* src = srcBytes;
+            byte* dest = destBytes;
+
+            var maskTopBits = Vector128.Create((byte)0x3F);
+
+            Vector128<byte> lookup0, lookup1, lookup2, lookup3;
+            lookup0 = ReadVector<Vector128<byte>>(s_encodingMap);
+            lookup1 = ReadVector<Vector128<byte>>(s_encodingMap);
+            lookup2 = ReadVector<Vector128<byte>>(s_encodingMap);
+            lookup3 = ReadVector<Vector128<byte>>(s_encodingMap);
+
+            //while (remaining >= 48)
+            do
+            {
+                AssertRead<Vector128<byte>>(src + 32, srcStart, sourceLength);
+                // TODO translate this triple VLD1 to a single VLD3
+                var str0 = AdvSimd.LoadVector128(src);
+                var str1 = AdvSimd.LoadVector128(src + 16);
+                var str2 = AdvSimd.LoadVector128(src + 32);
+
+                Vector128<byte> res0, res1, res2, res3;
+
+                // Needs intrinsics:
+                //      UnsignedShiftRight - vshrq_n_u8 - USHR
+                //      UnsignedShiftLeft - vshlq_n_u8 - USHL
+                static Vector128<byte> UnsignedShiftRight(Vector128<byte> vector, int count) => throw new NotImplementedException();
+                static Vector128<byte> UnsignedShiftLeft(Vector128<byte> vector, int count) => throw new NotImplementedException();
+
+                // reshuffle
+
+                res0 = UnsignedShiftRight(str0, 2);
+                res1 = AdvSimd.Or(UnsignedShiftRight(str1, 4), UnsignedShiftLeft(str0, 4));
+                res2 = AdvSimd.Or(UnsignedShiftRight(str2, 6), UnsignedShiftLeft(str1, 2));
+                res3 = str2;
+
+                res0 = AdvSimd.And(res0, maskTopBits);
+                res1 = AdvSimd.And(res1, maskTopBits);
+                res2 = AdvSimd.And(res2, maskTopBits);
+                res3 = AdvSimd.And(res3, maskTopBits);
+
+                // translate
+
+                // Translate values 0..63 to the Base64 alphabet. There are five sets:
+                // #  From      To         Abs    Index  Characters
+                // 0  [0..25]   [65..90]   +65        0  ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                // 1  [26..51]  [97..122]  +71        1  abcdefghijklmnopqrstuvwxyz
+                // 2  [52..61]  [48..57]    -4  [2..11]  0123456789
+                // 3  [62]      [43]       -19       12  +
+                // 4  [63]      [47]       -16       13  /
+
+                // Needs intrinsics:
+                //      TableLookup - vqtbl4q_u8 - TBL
+                static Vector128<byte> TableLookup(Vector128<byte> l0, Vector128<byte> l1, Vector128<byte> l2, Vector128<byte> l3, Vector128<byte> right) => throw new NotImplementedException();
+
+                res0 = TableLookup(lookup0, lookup1, lookup2, lookup3, res0);
+                res1 = TableLookup(lookup0, lookup1, lookup2, lookup3, res1);
+                res2 = TableLookup(lookup0, lookup1, lookup2, lookup3, res2);
+                res3 = TableLookup(lookup0, lookup1, lookup2, lookup3, res3);
+
+                // TODO translate this quadruple VST1 to a single VST4
+                // Only assert last write
+                AssertWrite<Vector128<sbyte>>(dest + 48, destStart, destLength);
+                AdvSimd.Store(dest, res0);
+                AdvSimd.Store(dest + 16, res1);
+                AdvSimd.Store(dest + 32, res2);
+                AdvSimd.Store(dest + 48, res3);
+
+                src += 48;
+                dest += 64;
             }
             while (src <= srcEnd);
 
