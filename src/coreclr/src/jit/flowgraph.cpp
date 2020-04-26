@@ -4885,6 +4885,7 @@ void Compiler::fgFindJumpTargets(const BYTE* codeAddr, IL_OFFSET codeSize, Fixed
             case CEE_CONSTRAINED:
             case CEE_READONLY:
             case CEE_VOLATILE:
+            case CEE_NOCHECK:
             case CEE_TAILCALL:
             {
                 if (codeAddr >= codeEndp)
@@ -5789,6 +5790,7 @@ unsigned Compiler::fgMakeBasicBlocks(const BYTE* codeAddr, IL_OFFSET codeSize, F
             case CEE_CONSTRAINED:
             case CEE_VOLATILE:
             case CEE_UNALIGNED:
+            case CEE_NOCHECK:
                 // fgFindJumpTargets should have ruled out this possibility
                 //   (i.e. a prefix opcodes as last intruction in a block)
                 noway_assert(codeAddr < codeEndp);
