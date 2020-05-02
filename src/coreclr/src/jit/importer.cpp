@@ -12056,7 +12056,7 @@ void Compiler::impImportBlockCode(BasicBlock* block)
 
                 /* Create the index node and push it on the stack */
 
-                op1 = gtNewIndexRef(lclTyp, op1, op2);
+                op1 = gtNewIndexRef(lclTyp, op1, op2, !(prefixFlags & PREFIX_NO_RANGECHECK));
 
                 ldstruct = (opcode == CEE_LDELEM && lclTyp == TYP_STRUCT);
 

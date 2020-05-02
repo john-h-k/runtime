@@ -7653,7 +7653,7 @@ GenTree* Compiler::gtCloneExpr(
             {
                 GenTreeIndex* asInd = tree->AsIndex();
                 copy                = new (this, GT_INDEX)
-                    GenTreeIndex(asInd->TypeGet(), asInd->Arr(), asInd->Index(), asInd->gtIndElemSize);
+                    GenTreeIndex(asInd->TypeGet(), asInd->Arr(), asInd->Index(), asInd->gtIndElemSize, asInd->gtFlags & GTF_INX_RNGCHK);
                 copy->AsIndex()->gtStructElemClass = asInd->gtStructElemClass;
             }
             break;
