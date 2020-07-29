@@ -12271,7 +12271,7 @@ void Compiler::impImportBlockCode(BasicBlock* block)
 
                 /* Create the index node */
 
-                op1 = gtNewIndexRef(lclTyp, op3, op1);
+                op1 = gtNewIndexRef(lclTyp, op3, op1, !(prefixFlags & PREFIX_NO_RANGECHECK));
 
                 /* Create the assignment node and append it */
 
