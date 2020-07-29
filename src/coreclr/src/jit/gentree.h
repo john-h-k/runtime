@@ -4996,7 +4996,8 @@ struct GenTreeIndexAddr : public GenTreeOp
                      CORINFO_CLASS_HANDLE structElemClass,
                      unsigned             elemSize,
                      unsigned             lenOffset,
-                     unsigned             elemOffset)
+                     unsigned             elemOffset,
+                     bool                 rngChk = true)
         : GenTreeOp(GT_INDEX_ADDR, TYP_BYREF, arr, ind)
         , gtStructElemClass(structElemClass)
         , gtIndRngFailBB(nullptr)
@@ -5012,6 +5013,7 @@ struct GenTreeIndexAddr : public GenTreeOp
         }
         else
 #endif
+        if (rngChk)
         {
             // Do bounds check
             gtFlags |= GTF_INX_RNGCHK;

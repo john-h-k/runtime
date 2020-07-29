@@ -7665,8 +7665,9 @@ GenTree* Compiler::gtCloneExpr(
                 copy = new (this, GT_INDEX_ADDR)
                     GenTreeIndexAddr(asIndAddr->Arr(), asIndAddr->Index(), asIndAddr->gtElemType,
                                      asIndAddr->gtStructElemClass, asIndAddr->gtElemSize, asIndAddr->gtLenOffset,
-                                     asIndAddr->gtElemOffset);
+                                     asIndAddr->gtElemOffset, asIndAddr->gtFlags & GTF_INX_RNGCHK);
                 copy->AsIndexAddr()->gtIndRngFailBB = asIndAddr->gtIndRngFailBB;
+                copy->gtFlags |= asIndAddr->gtFlags;
             }
             break;
 
