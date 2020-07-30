@@ -839,6 +839,7 @@ public:
 
 #define GTF_NOP_DEATH               0x40000000 // GT_NOP -- operand dies here
 
+#define GTF_FLD_NULLCHECK           0x80000000
 #define GTF_FLD_VOLATILE            0x40000000 // GT_FIELD/GT_CLS_VAR -- same as GTF_IND_VOLATILE
 #define GTF_FLD_INITCLASS           0x20000000 // GT_FIELD/GT_CLS_VAR -- field access requires preceding class/static init helper
 

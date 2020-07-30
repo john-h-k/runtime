@@ -7939,6 +7939,11 @@ var_types Compiler::impImportCall(OPCODE                  opcode,
                 assert(!(clsFlags & CORINFO_FLG_VALUECLASS));
                 call = gtNewCallNode(CT_USER_FUNC, callInfo->hMethod, callRetTyp, nullptr, ilOffset);
                 call->gtFlags |= GTF_CALL_VIRT_VTABLE;
+                if (!(prefixFlags & PREFIX_NO_NULLCHECK))
+                {
+                    // in the case of 'no. nullcheck callvirt' being devirtualised, we can elide the null check
+                    call->gtFlags |= GTF_CALL_NULLCHECK;
+                }
                 break;
             }
 
@@ -7982,6 +7987,11 @@ var_types Compiler::impImportCall(OPCODE                  opcode,
                 call                          = gtNewIndCallNode(fptr, callRetTyp, args, ilOffset);
                 call->AsCall()->gtCallThisArg = gtNewCallArgs(thisPtrCopy);
                 call->gtFlags |= GTF_EXCEPT | (fptr->gtFlags & GTF_GLOB_EFFECT);
+                // it is legal to 'ldvirtfn' on a non-virtual instance method, in which case the nullcheck can be elided
+                if (!(prefixFlags & PREFIX_NO_NULLCHECK))
+                {
+                    call->gtFlags |= GTF_CALL_NULLCHECK;
+                }
 
                 if ((sig->sigInst.methInstCount != 0) && IsTargetAbi(CORINFO_CORERT_ABI))
                 {
@@ -8011,7 +8021,8 @@ var_types Compiler::impImportCall(OPCODE                  opcode,
                 // We remove the nullcheck for the GetType call intrinsic.
                 // TODO-CQ: JIT64 does not introduce the null check for many more helper calls
                 // and intrinsics.
-                if (callInfo->nullInstanceCheck &&
+                if (!(prefixFlags & PREFIX_NO_NULLCHECK) &&
+                    callInfo->nullInstanceCheck &&
                     !((mflags & CORINFO_FLG_INTRINSIC) != 0 && (intrinsicID == CORINFO_INTRINSIC_Object_GetType)))
                 {
                     call->gtFlags |= GTF_CALL_NULLCHECK;
@@ -8116,8 +8127,7 @@ var_types Compiler::impImportCall(OPCODE                  opcode,
         {
             assert(mflags & CORINFO_FLG_FINAL);
 
-            /* It should have the GTF_CALL_NULLCHECK flag set. Reset it */
-            assert(call->gtFlags & GTF_CALL_NULLCHECK);
+            // Remove nullcheck flag if present
             call->gtFlags &= ~GTF_CALL_NULLCHECK;
         }
     }
@@ -14680,6 +14690,8 @@ void Compiler::impImportBlockCode(BasicBlock* block)
                 }
 
             FIELD_DONE:
+                // indicate the field access may require a nullcheck unless no. nullcheck is applied
+                op1->gtFlags |= (GTF_FLD_NULLCHECK & !(prefixFlags & PREFIX_NO_NULLCHECK));
                 impPushOnStack(op1, tiRetVal);
             }
             break;
@@ -15838,6 +15850,13 @@ void Compiler::impImportBlockCode(BasicBlock* block)
                 _impResolveToken(CORINFO_TOKENKIND_Casting);
 
                 JITDUMP(" %08X", resolvedToken.token);
+
+                // Simply do nothing if the no. prefix was applied to the cast
+                // Same behaviour as Unsafe.As<T>
+                if (prefixFlags & PREFIX_NO_TYPECHECK)
+                {
+                    break;
+                }
 
                 if (!opts.IsReadyToRun())
                 {

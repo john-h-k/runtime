@@ -6032,7 +6032,8 @@ GenTree* Compiler::fgMorphField(GenTree* tree, MorphAddrContext* mac)
             // non-null, or else it is a field dereference, which will do its own bounds checking if necessary.
             if (objRef->gtOper != GT_ADDR && (mac->m_kind == MACK_Addr || mac->m_kind == MACK_Ind))
             {
-                if (!mac->m_allConstantOffsets || fgIsBigOffset(mac->m_totalOffset + fldOffset))
+                if (tree->gtFlags & GTF_FLD_NULLCHECK || !mac->m_allConstantOffsets ||
+                    fgIsBigOffset(mac->m_totalOffset + fldOffset))
                 {
                     addExplicitNullCheck = true;
                 }
