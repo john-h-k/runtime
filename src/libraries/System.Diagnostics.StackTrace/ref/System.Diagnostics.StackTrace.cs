@@ -49,6 +49,11 @@ namespace System.Diagnostics
         public virtual System.Diagnostics.StackFrame[] GetFrames() { throw null; }
         public override string ToString() { throw null; }
     }
+    [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method | AttributeTargets.Constructor | AttributeTargets.Struct, Inherited = false)]
+    public sealed class StackTraceHiddenAttribute : Attribute
+    {
+        public StackTraceHiddenAttribute() { }
+    }
 }
 namespace System.Diagnostics.SymbolStore
 {
