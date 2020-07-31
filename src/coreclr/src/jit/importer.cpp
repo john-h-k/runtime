@@ -10327,7 +10327,7 @@ static void impValidateMemoryAccessOpcode(const BYTE* codeAddr, const BYTE* code
         }
         if ((flags & PREFIX_NO_NULLCHECK) != 0)
         {
-            if (!(opcode == CEE_LDFLD || opcode == CEE_STFLD || opcode == CEE_CALLVIRT || opcode == CEE_LDVIRTFTN
+            if (!(opcode == CEE_LDFLDA || opcode == CEE_LDFLD || opcode == CEE_STFLD || opcode == CEE_CALLVIRT || opcode == CEE_LDVIRTFTN
                  || (opcode >= CEE_LDELEMA && opcode <= CEE_STELEM)))
             {
                 BADCODE("Invalid opcode for no. prefix with nullcheck flag");
@@ -13869,8 +13869,6 @@ void Compiler::impImportBlockCode(BasicBlock* block)
 
                     impValidateCheckElisionOpcode(codeAddr, codeEndp, flags);
 
-
-
                     prefixFlags |= flags;
                 }
 
@@ -14691,7 +14689,10 @@ void Compiler::impImportBlockCode(BasicBlock* block)
 
             FIELD_DONE:
                 // indicate the field access may require a nullcheck unless no. nullcheck is applied
-                op1->gtFlags |= (GTF_FLD_NULLCHECK & !(prefixFlags & PREFIX_NO_NULLCHECK));
+                if (!(prefixFlags & PREFIX_NO_NULLCHECK))
+                {
+                    op1->gtFlags |= GTF_FLD_NULLCHECK;
+                }
                 impPushOnStack(op1, tiRetVal);
             }
             break;

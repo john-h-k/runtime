@@ -6025,15 +6025,17 @@ GenTree* Compiler::fgMorphField(GenTree* tree, MorphAddrContext* mac)
         bool addExplicitNullCheck = false;
 
         // Implicit byref locals are never null.
-        if (!((objRef->gtOper == GT_LCL_VAR) && lvaIsImplicitByRefLocal(objRef->AsLclVarCommon()->GetLclNum())))
+        // If GTF_FLD_NULLCHECK isn't applied, we never need to generate a null check
+        if (tree->gtFlags & GTF_FLD_NULLCHECK &&
+            !((objRef->gtOper == GT_LCL_VAR) &&
+                                                lvaIsImplicitByRefLocal(objRef->AsLclVarCommon()->GetLclNum())))
         {
             // If the objRef is a GT_ADDR node, it, itself, never requires null checking.  The expression
             // whose address is being taken is either a local or static variable, whose address is necessarily
             // non-null, or else it is a field dereference, which will do its own bounds checking if necessary.
             if (objRef->gtOper != GT_ADDR && (mac->m_kind == MACK_Addr || mac->m_kind == MACK_Ind))
             {
-                if (tree->gtFlags & GTF_FLD_NULLCHECK || !mac->m_allConstantOffsets ||
-                    fgIsBigOffset(mac->m_totalOffset + fldOffset))
+                if (!mac->m_allConstantOffsets || fgIsBigOffset(mac->m_totalOffset + fldOffset))
                 {
                     addExplicitNullCheck = true;
                 }
