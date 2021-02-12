@@ -1,7 +1,6 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
 
-#nullable enable
 using System;
 using System.Diagnostics;
 using System.Security.Cryptography;
@@ -68,7 +67,7 @@ namespace Internal.Cryptography
         protected override unsafe int UncheckedTransformFinalBlock(ReadOnlySpan<byte> inputBuffer, Span<byte> outputBuffer)
         {
             // We can't complete decryption on a partial block
-            if (inputBuffer.Length % InputBlockSize != 0)
+            if (inputBuffer.Length % PaddingSizeBytes != 0)
                 throw new CryptographicException(SR.Cryptography_PartialBlock);
 
             //

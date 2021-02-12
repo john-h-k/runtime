@@ -289,6 +289,18 @@ mono_gc_collection_count (int generation)
 	return GC_get_gc_no ();
 }
 
+void
+mono_stop_world (MonoThreadInfoFlags flags)
+{
+	g_assert ("mono_stop_world is not supported in Boehm");
+}
+
+void
+mono_restart_world (MonoThreadInfoFlags flags)
+{
+	g_assert ("mono_restart_world is not supported in Boehm");
+}
+
 /**
  * mono_gc_add_memory_pressure:
  * \param value amount of bytes

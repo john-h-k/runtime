@@ -56,7 +56,6 @@
 #include <mono/metadata/gc-internals.h>
 #include <mono/metadata/threads-types.h>
 #include <mono/metadata/verify.h>
-#include <mono/metadata/verify-internals.h>
 #include <mono/metadata/mempool-internals.h>
 #include <mono/metadata/attach.h>
 #include <mono/utils/mono-math.h>
@@ -77,7 +76,6 @@
 #include <string.h>
 #include <ctype.h>
 #include "trace.h"
-#include "version.h"
 #include "debugger-agent.h"
 #include "mini-runtime.h"
 #include "jit-icalls.h"
@@ -232,7 +230,7 @@ MONO_SIG_HANDLER_FUNC (static, sigabrt_signal_handler)
 			return;
 		mono_sigctx_to_monoctx (ctx, &mctx);
 		if (mono_dump_start ())
-			mono_handle_native_crash (mono_get_signame (info->si_signo), &mctx, info, ctx);
+			mono_handle_native_crash (mono_get_signame (info->si_signo), &mctx, info);
 		else
 			abort ();
 	}
@@ -254,7 +252,7 @@ MONO_SIG_HANDLER_FUNC (static, sigterm_signal_handler)
 	// running. Returns FALSE on unrecoverable error.
 	if (mono_dump_start ()) {
 		// Process was killed from outside since crash reporting wasn't running yet.
-		mono_handle_native_crash (mono_get_signame (info->si_signo), &mctx, NULL, ctx);
+		mono_handle_native_crash (mono_get_signame (info->si_signo), &mctx, NULL);
 	} else {
 		// Crash reporting already running and we got a second SIGTERM from as part of thread-summarizing
 		if (!mono_threads_summarize_execute (&mctx, &output, &hashes, FALSE, NULL, 0))
@@ -523,6 +521,7 @@ static clock_serv_t sampling_clock;
 static void
 clock_init_for_profiler (MonoProfilerSampleMode mode)
 {
+	mono_clock_init (&sampling_clock);
 }
 
 static void
@@ -691,7 +690,6 @@ init:
 		goto init;
 	}
 
-	mono_clock_init (&sampling_clock);
 	clock_init_for_profiler (mode);
 
 	for (guint64 sleep = mono_clock_get_time_ns (sampling_clock); mono_atomic_load_i32 (&sampling_thread_running); clock_sleep_ns_abs (sleep)) {
@@ -855,6 +853,7 @@ dump_memory_around_ip (MonoContext *mctx)
 
 	gpointer native_ip = MONO_CONTEXT_GET_IP (mctx);
 	if (native_ip) {
+		native_ip = MINI_FTNPTR_TO_ADDR (native_ip);
 		g_async_safe_printf ("Memory around native instruction pointer (%p):", native_ip);
 		mono_dump_mem (((guint8 *) native_ip) - 0x10, 0x40);
 	} else {
@@ -1107,7 +1106,7 @@ mono_dump_native_crash_info (const char *signal, MonoContext *mctx, MONO_SIG_HAN
 }
 
 void
-mono_post_native_crash_handler (const char *signal, MonoContext *mctx, MONO_SIG_HANDLER_INFO_TYPE *info, gboolean crash_chaining, void *context)
+mono_post_native_crash_handler (const char *signal, MonoContext *mctx, MONO_SIG_HANDLER_INFO_TYPE *info, gboolean crash_chaining)
 {
 	if (!crash_chaining) {
 		/*Android abort is a fluke, it doesn't abort, it triggers another segv. */
@@ -1117,11 +1116,6 @@ mono_post_native_crash_handler (const char *signal, MonoContext *mctx, MONO_SIG_
 		abort ();
 #endif
 	}
-	mono_chain_signal (info->si_signo, info, context);
-
-	// we remove Mono's signal handlers from crashing signals in mono_handle_native_crash(), so re-raising will now allow the OS to handle the crash
-	// TODO: perhaps we can always use this to abort, instead of explicit exit()/abort() as we do above
-	raise (info->si_signo);
 }
 #endif /* !MONO_CROSS_COMPILE */
 

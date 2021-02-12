@@ -1276,6 +1276,10 @@ get_wrapper_shared_type_full (MonoType *t, gboolean is_field)
 #else
 		return m_class_get_byval_arg (mono_defaults.uint32_class);
 #endif
+	case MONO_TYPE_R4:
+		return m_class_get_byval_arg (mono_defaults.single_class);
+	case MONO_TYPE_R8:
+		return m_class_get_byval_arg (mono_defaults.double_class);
 	case MONO_TYPE_OBJECT:
 	case MONO_TYPE_CLASS:
 	case MONO_TYPE_SZARRAY:
@@ -2413,7 +2417,7 @@ instantiate_info (MonoDomain *domain, MonoRuntimeGenericContextInfoTemplate *oti
 
 					sig = mono_method_signature_internal (jinfo_get_method (callee_ji));
 					gpointer out_wrapper = mini_get_gsharedvt_wrapper (FALSE, NULL, sig, gsig, -1, FALSE);
-					MonoFtnDesc *out_wrapper_arg = mini_llvmonly_create_ftndesc (domain, callee_ji->code_start, mini_method_get_rgctx (method));
+					MonoFtnDesc *out_wrapper_arg = mini_llvmonly_create_ftndesc (domain, jinfo_get_ftnptr (callee_ji), mini_method_get_rgctx (method));
 
 					/* Returns an ftndesc */
 					addr = mini_llvmonly_create_ftndesc (domain, out_wrapper, out_wrapper_arg);
@@ -2461,11 +2465,11 @@ instantiate_info (MonoDomain *domain, MonoRuntimeGenericContextInfoTemplate *oti
 					 * might not exist at all in IL, so the AOT compiler cannot generate the wrappers
 					 * for it.
 					 */
-					addr = mini_llvmonly_create_ftndesc (domain, callee_ji->code_start, mini_method_get_rgctx (method));
+					addr = mini_llvmonly_create_ftndesc (domain, jinfo_get_ftnptr (callee_ji), mini_method_get_rgctx (method));
 				} else if (mini_is_gsharedvt_variable_signature (gsig)) {
-					gpointer in_wrapper = mini_get_gsharedvt_wrapper (TRUE, callee_ji->code_start, sig, gsig, -1, FALSE);
+					gpointer in_wrapper = mini_get_gsharedvt_wrapper (TRUE, jinfo_get_ftnptr (callee_ji), sig, gsig, -1, FALSE);
 
-					gpointer in_wrapper_arg = mini_llvmonly_create_ftndesc (domain, callee_ji->code_start, mini_method_get_rgctx (method));
+					gpointer in_wrapper_arg = mini_llvmonly_create_ftndesc (domain, jinfo_get_ftnptr (callee_ji), mini_method_get_rgctx (method));
 
 					addr = mini_llvmonly_create_ftndesc (domain, in_wrapper, in_wrapper_arg);
 				} else {
@@ -2476,7 +2480,7 @@ instantiate_info (MonoDomain *domain, MonoRuntimeGenericContextInfoTemplate *oti
 				sig = mono_method_signature_internal (method);
 				gsig = mono_method_signature_internal (jinfo_get_method (callee_ji)); 
 
-				addr = mini_get_gsharedvt_wrapper (TRUE, callee_ji->code_start, sig, gsig, -1, FALSE);
+				addr = mini_get_gsharedvt_wrapper (TRUE, jinfo_get_ftnptr (callee_ji), sig, gsig, -1, FALSE);
 
 				sig = mono_method_signature_internal (method);
 				gsig = call_sig;
@@ -4462,6 +4466,21 @@ mini_is_gsharedvt_sharable_inst (MonoGenericInst *inst)
 	}
 
 	return has_vt;
+}
+
+gboolean
+mini_is_gsharedvt_inst (MonoGenericInst *inst)
+{
+	int i;
+
+	for (i = 0; i < inst->type_argc; ++i) {
+		MonoType *type = inst->type_argv [i];
+
+		if (mini_is_gsharedvt_type (type))
+			return TRUE;
+	}
+
+	return FALSE;
 }
 
 gboolean

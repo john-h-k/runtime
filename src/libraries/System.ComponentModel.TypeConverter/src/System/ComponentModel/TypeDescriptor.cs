@@ -8,6 +8,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Threading;
 
 namespace System.ComponentModel
@@ -2555,7 +2556,7 @@ namespace System.ComponentModel
             }
             else
             {
-                return !attribute.Equals(memberAttribute);
+                return !attribute.Match(memberAttribute);
             }
         }
 

@@ -86,6 +86,18 @@ mono_gc_collection_count (int generation)
 }
 
 void
+mono_stop_world (MonoThreadInfoFlags flags)
+{
+	g_assert ("mono_stop_world is not supported in null GC");
+}
+
+void
+mono_restart_world (MonoThreadInfoFlags flags)
+{
+	g_assert ("mono_restart_world is not supported in null GC");
+}
+
+void
 mono_gc_add_memory_pressure (gint64 value)
 {
 }

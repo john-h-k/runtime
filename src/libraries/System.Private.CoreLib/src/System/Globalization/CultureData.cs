@@ -152,7 +152,7 @@ namespace System.Globalization
         /// </remarks>
         private static Dictionary<string, string> RegionNames =>
             s_regionNames ??=
-            new Dictionary<string, string>(257 /* prime */)
+            new Dictionary<string, string>(257 /* prime */, StringComparer.OrdinalIgnoreCase)
             {
                 { "001", "en-001" },
                 { "029", "en-029" },
@@ -1378,7 +1378,7 @@ namespace System.Globalization
         /// list Separator
         /// (user can override)
         /// </summary>
-        internal string ListSeparator => _sListSeparator ??= GetLocaleInfoCoreUserOverride(LocaleStringData.ListSeparator);
+        internal string ListSeparator => _sListSeparator ??= ShouldUseUserOverrideNlsData ? NlsGetLocaleInfo(LocaleStringData.ListSeparator) : IcuGetListSeparator(_sWindowsName);
 
         /// <summary>
         /// AM designator

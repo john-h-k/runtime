@@ -392,6 +392,7 @@ int32_t AppleCryptoNative_SslIsHostnameMatch(SSLContextRef sslContext, CFStringR
     if (anchors == NULL)
     {
         CFRelease(certs);
+        CFRelease(existingTrust);
         return -6;
     }
 
@@ -513,6 +514,9 @@ int32_t AppleCryptoNative_SslIsHostnameMatch(SSLContextRef sslContext, CFStringR
     if (anchors != NULL)
         CFRelease(anchors);
 
+    if (existingTrust != NULL)
+        CFRelease(existingTrust);
+
     CFRelease(sslPolicy);
     return ret;
 }
@@ -584,19 +588,19 @@ int32_t AppleCryptoNative_SslSetEnabledCipherSuites(SSLContextRef sslContext, co
     // Max numCipherSuites is 2^16 (all possible cipher suites)
     assert(numCipherSuites < (1 << 16));
 
-#if !defined(TARGET_IOS) && !defined(TARGET_TVOS)
+#if !defined(TARGET_MACCATALYST) && !defined(TARGET_IOS) && !defined(TARGET_TVOS)
     if (sizeof(SSLCipherSuite) == sizeof(uint32_t))
     {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
         // macOS
-        return SSLSetEnabledCiphers(sslContext, cipherSuites, (size_t)numCipherSuites);
+        return SSLSetEnabledCiphers(sslContext, (const SSLCipherSuite *)cipherSuites, (size_t)numCipherSuites);
 #pragma clang diagnostic pop   
     }
     else
 #endif
     {
-        // iOS, tvOS, watchOS
+        // MacCatalyst, iOS, tvOS, watchOS
         SSLCipherSuite* cipherSuites16 = (SSLCipherSuite*)calloc((size_t)numCipherSuites, sizeof(SSLCipherSuite));
 
         if (cipherSuites16 == NULL)

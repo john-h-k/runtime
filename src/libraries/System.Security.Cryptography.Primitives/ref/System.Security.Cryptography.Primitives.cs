@@ -9,7 +9,8 @@ namespace System.Security.Cryptography
     public abstract partial class AsymmetricAlgorithm : System.IDisposable
     {
         protected int KeySizeValue;
-        [System.Diagnostics.CodeAnalysis.MaybeNullAttribute] protected System.Security.Cryptography.KeySizes[] LegalKeySizesValue;
+        [System.Diagnostics.CodeAnalysis.MaybeNullAttribute]
+        protected System.Security.Cryptography.KeySizes[] LegalKeySizesValue;
         protected AsymmetricAlgorithm() { }
         public virtual string? KeyExchangeAlgorithm { get { throw null; } }
         public virtual int KeySize { get { throw null; } set { } }
@@ -18,6 +19,7 @@ namespace System.Security.Cryptography
         public void Clear() { }
         [System.ObsoleteAttribute("The default implementation of this cryptography algorithm is not supported", DiagnosticId = "SYSLIB0007", UrlFormat = "https://aka.ms/dotnet-warnings/{0}")]
         public static System.Security.Cryptography.AsymmetricAlgorithm Create() { throw null; }
+        [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute("The default algorithm implementations might be removed, use strong type references like 'RSA.Create()' instead.")]
         public static System.Security.Cryptography.AsymmetricAlgorithm? Create(string algName) { throw null; }
         public void Dispose() { }
         protected virtual void Dispose(bool disposing) { }
@@ -45,7 +47,6 @@ namespace System.Security.Cryptography
         ECB = 2,
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
         OFB = 3,
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Never)]
         CFB = 4,
         CTS = 5,
     }
@@ -116,6 +117,7 @@ namespace System.Security.Cryptography
         public System.Threading.Tasks.Task<byte[]> ComputeHashAsync(System.IO.Stream inputStream, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) { throw null; }
         [System.ObsoleteAttribute("The default implementation of this cryptography algorithm is not supported", DiagnosticId = "SYSLIB0007", UrlFormat = "https://aka.ms/dotnet-warnings/{0}")]
         public static System.Security.Cryptography.HashAlgorithm Create() { throw null; }
+        [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute("The default algorithm implementations might be removed, use strong type references like 'RSA.Create()' instead.")]
         public static System.Security.Cryptography.HashAlgorithm? Create(string hashName) { throw null; }
         public void Dispose() { }
         protected virtual void Dispose(bool disposing) { }
@@ -139,7 +141,7 @@ namespace System.Security.Cryptography
         public static System.Security.Cryptography.HashAlgorithmName SHA256 { get { throw null; } }
         public static System.Security.Cryptography.HashAlgorithmName SHA384 { get { throw null; } }
         public static System.Security.Cryptography.HashAlgorithmName SHA512 { get { throw null; } }
-        public override bool Equals(object? obj) { throw null; }
+        public override bool Equals([System.Diagnostics.CodeAnalysis.NotNullWhenAttribute(true)] object? obj) { throw null; }
         public bool Equals(System.Security.Cryptography.HashAlgorithmName other) { throw null; }
         public static System.Security.Cryptography.HashAlgorithmName FromOid(string oidValue) { throw null; }
         public override int GetHashCode() { throw null; }
@@ -156,6 +158,7 @@ namespace System.Security.Cryptography
         public override byte[] Key { get { throw null; } set { } }
         [System.ObsoleteAttribute("The default implementation of this cryptography algorithm is not supported", DiagnosticId = "SYSLIB0007", UrlFormat = "https://aka.ms/dotnet-warnings/{0}")]
         public static new System.Security.Cryptography.HMAC Create() { throw null; }
+        [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute("The default algorithm implementations might be removed, use strong type references like 'RSA.Create()' instead.")]
         public static new System.Security.Cryptography.HMAC? Create(string algorithmName) { throw null; }
         protected override void Dispose(bool disposing) { }
         protected override void HashCore(byte[] rgb, int ib, int cb) { }
@@ -180,6 +183,7 @@ namespace System.Security.Cryptography
         public virtual byte[] Key { get { throw null; } set { } }
         [System.ObsoleteAttribute("The default implementation of this cryptography algorithm is not supported", DiagnosticId = "SYSLIB0007", UrlFormat = "https://aka.ms/dotnet-warnings/{0}")]
         public static new System.Security.Cryptography.KeyedHashAlgorithm Create() { throw null; }
+        [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute("The default algorithm implementations might be removed, use strong type references like 'RSA.Create()' instead.")]
         public static new System.Security.Cryptography.KeyedHashAlgorithm? Create(string algName) { throw null; }
         protected override void Dispose(bool disposing) { }
     }
@@ -220,8 +224,10 @@ namespace System.Security.Cryptography
         protected byte[]? IVValue;
         protected int KeySizeValue;
         protected byte[]? KeyValue;
-        [System.Diagnostics.CodeAnalysis.MaybeNullAttribute] protected System.Security.Cryptography.KeySizes[] LegalBlockSizesValue;
-        [System.Diagnostics.CodeAnalysis.MaybeNullAttribute] protected System.Security.Cryptography.KeySizes[] LegalKeySizesValue;
+        [System.Diagnostics.CodeAnalysis.MaybeNullAttribute]
+        protected System.Security.Cryptography.KeySizes[] LegalBlockSizesValue;
+        [System.Diagnostics.CodeAnalysis.MaybeNullAttribute]
+        protected System.Security.Cryptography.KeySizes[] LegalKeySizesValue;
         protected System.Security.Cryptography.CipherMode ModeValue;
         protected System.Security.Cryptography.PaddingMode PaddingValue;
         protected SymmetricAlgorithm() { }
@@ -237,6 +243,7 @@ namespace System.Security.Cryptography
         public void Clear() { }
         [System.ObsoleteAttribute("The default implementation of this cryptography algorithm is not supported", DiagnosticId = "SYSLIB0007", UrlFormat = "https://aka.ms/dotnet-warnings/{0}")]
         public static System.Security.Cryptography.SymmetricAlgorithm Create() { throw null; }
+        [System.Diagnostics.CodeAnalysis.RequiresUnreferencedCodeAttribute("The default algorithm implementations might be removed, use strong type references like 'RSA.Create()' instead.")]
         public static System.Security.Cryptography.SymmetricAlgorithm? Create(string algName) { throw null; }
         public virtual System.Security.Cryptography.ICryptoTransform CreateDecryptor() { throw null; }
         public abstract System.Security.Cryptography.ICryptoTransform CreateDecryptor(byte[] rgbKey, byte[]? rgbIV);
@@ -246,6 +253,9 @@ namespace System.Security.Cryptography
         protected virtual void Dispose(bool disposing) { }
         public abstract void GenerateIV();
         public abstract void GenerateKey();
+        public int GetCiphertextLengthCbc(int plaintextLength, System.Security.Cryptography.PaddingMode paddingMode = System.Security.Cryptography.PaddingMode.PKCS7) { throw null; }
+        public int GetCiphertextLengthCfb(int plaintextLength, System.Security.Cryptography.PaddingMode paddingMode = System.Security.Cryptography.PaddingMode.None, int feedbackSizeInBits = 8) { throw null; }
+        public int GetCiphertextLengthEcb(int plaintextLength, System.Security.Cryptography.PaddingMode paddingMode) { throw null; }
         public bool ValidKeySize(int bitLength) { throw null; }
     }
 }

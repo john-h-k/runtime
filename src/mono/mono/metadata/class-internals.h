@@ -112,7 +112,10 @@ struct _MonoMethodPInvoke {
 	MonoMethod method;
 	gpointer addr;
 	/* add marshal info */
-	guint16 piflags;  /* pinvoke flags */
+	union {
+		guint16 piflags;  /* pinvoke flags */
+		guint16 icflags;  /* icall flags */
+	};
 	guint32 implmap_idx;  /* index into IMPLMAP */
 };
 
@@ -260,6 +263,7 @@ typedef enum {
 	MONO_CLASS_GPARAM, /* generic parameter */
 	MONO_CLASS_ARRAY, /* vector or array, bounded or not */
 	MONO_CLASS_POINTER, /* pointer or function pointer*/
+	MONO_CLASS_GC_FILLER = 0xAC /* not a real class kind - used for sgen nursery filler arrays */
 } MonoTypeKind;
 
 typedef struct _MonoClassDef MonoClassDef;
@@ -294,9 +298,13 @@ union _MonoClassSizes {
 
 /* If MonoClass definition is hidden, just declare the getters.
  * Otherwise, define them as static inline functions.
+ *
+ * In-tree profilers are allowed to use the getters.  So if we're compiling
+ * with --enable-checked-build=private_types, mark the symbols with
+ * MONO_PROFILER_API
  */
 #ifdef MONO_CLASS_DEF_PRIVATE
-#define MONO_CLASS_GETTER(funcname, rettype, optref, argtype, fieldname) rettype funcname (argtype *klass);
+#define MONO_CLASS_GETTER(funcname, rettype, optref, argtype, fieldname) MONO_PROFILER_API rettype funcname (argtype *klass);
 #else
 #define MONO_CLASS_GETTER(funcname, rettype, optref, argtype, fieldname) static inline rettype funcname (argtype *klass) { return optref klass-> fieldname ; }
 #endif
@@ -996,7 +1004,6 @@ typedef struct {
 	MonoClass *iremotingtypeinfo_class;
 #endif
 	MonoClass *mono_method_message_class;
-	MonoClass *appdomain_class;
 	MonoClass *field_info_class;
 	MonoClass *method_info_class;
 	MonoClass *stack_frame_class;
@@ -1011,13 +1018,8 @@ typedef struct {
 	MonoClass *critical_finalizer_object; /* MAYBE NULL */
 	MonoClass *generic_ireadonlylist_class;
 	MonoClass *generic_ienumerator_class;
-#ifdef ENABLE_NETCORE
 	MonoClass *alc_class;
 	MonoClass *appcontext_class;
-#endif
-#ifndef ENABLE_NETCORE
-	MonoMethod *threadpool_perform_wait_callback_method;
-#endif
 } MonoDefaults;
 
 #ifdef DISABLE_REMOTING
@@ -1090,8 +1092,7 @@ GENERATE_GET_CLASS_WITH_CACHE_DECL (variant)
 
 #endif
 
-GENERATE_GET_CLASS_WITH_CACHE_DECL (appdomain)
-GENERATE_GET_CLASS_WITH_CACHE_DECL (appdomain_setup)
+MonoClass* mono_class_get_appdomain_class (void);
 
 GENERATE_GET_CLASS_WITH_CACHE_DECL (appdomain_unloaded_exception)
 GENERATE_TRY_GET_CLASS_WITH_CACHE_DECL (appdomain_unloaded_exception)
@@ -1100,10 +1101,8 @@ GENERATE_GET_CLASS_WITH_CACHE_DECL (valuetype)
 
 GENERATE_TRY_GET_CLASS_WITH_CACHE_DECL(handleref)
 
-#ifdef ENABLE_NETCORE
 GENERATE_GET_CLASS_WITH_CACHE_DECL (assembly_load_context)
 GENERATE_GET_CLASS_WITH_CACHE_DECL (native_library)
-#endif
 
 /* If you need a MonoType, use one of the mono_get_*_type () functions in class-inlines.h */
 extern MonoDefaults mono_defaults;
@@ -1590,6 +1589,51 @@ m_field_get_offset (MonoClassField *field)
 {
 	g_assert (m_class_is_fields_inited (field->parent));
 	return field->offset;
+}
+
+/*
+ * Memory allocation for classes/methods
+ *
+ *   These should be used to allocate memory whose lifetime is equal to
+ * the lifetime of the domain+class/method pair.
+ */
+
+static inline MonoMemoryManager*
+m_class_get_mem_manager (MonoDomain *domain, MonoClass *klass)
+{
+	// FIXME:
+	return mono_domain_memory_manager (domain);
+}
+
+static inline void *
+m_class_alloc (MonoDomain *domain, MonoClass *klass, guint size)
+{
+	return mono_mem_manager_alloc (m_class_get_mem_manager (domain, klass), size);
+}
+
+static inline void *
+m_class_alloc0 (MonoDomain *domain, MonoClass *klass, guint size)
+{
+	return mono_mem_manager_alloc0 (m_class_get_mem_manager (domain, klass), size);
+}
+
+static inline MonoMemoryManager*
+m_method_get_mem_manager (MonoDomain *domain, MonoMethod *method)
+{
+	// FIXME:
+	return mono_domain_memory_manager (domain);
+}
+
+static inline void *
+m_method_alloc (MonoDomain *domain, MonoMethod *method, guint size)
+{
+	return mono_mem_manager_alloc (m_method_get_mem_manager (domain, method), size);
+}
+
+static inline void *
+m_method_alloc0 (MonoDomain *domain, MonoMethod *method, guint size)
+{
+	return mono_mem_manager_alloc0 (m_method_get_mem_manager (domain, method), size);
 }
 
 // Enum and static storage for JIT icalls.

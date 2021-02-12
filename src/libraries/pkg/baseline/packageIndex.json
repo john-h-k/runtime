@@ -22,12 +22,17 @@
     },
     "Microsoft.Bcl.AsyncInterfaces": {
       "StableVersions": [
-        "1.0.0"
+        "1.0.0",
+        "1.1.0",
+        "1.1.1",
+        "5.0.0"
       ],
-      "BaselineVersion": "1.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "1.0.0.0": "1.0.0"
+        "1.0.0.0": "1.0.0",
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Bcl.HashCode": {
@@ -88,6 +93,7 @@
         "netcoreapp2.0": "4.0.3.0",
         "netcoreapp2.1": "4.0.4.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -134,15 +140,18 @@
         "1.1.28",
         "2.0.0",
         "2.0.1",
-        "2.1.0"
+        "2.1.0",
+        "2.2.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "2.0.0.0": "2.0.0",
         "2.0.1.0": "2.0.1",
         "2.0.2.0": "2.1.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Caching.Abstractions": {
@@ -159,6 +168,7 @@
         "2.1.0",
         "2.1.1",
         "2.1.2",
+        "2.1.23",
         "2.2.0",
         "3.0.0",
         "3.0.1",
@@ -166,11 +176,21 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "3.1.3",
+        "3.1.4",
+        "3.1.5",
+        "3.1.6",
+        "3.1.7",
+        "3.1.8",
+        "3.1.9",
+        "3.1.10",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Caching.Memory": {
@@ -194,11 +214,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Configuration": {
@@ -221,11 +243,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Configuration.Abstractions": {
@@ -248,11 +272,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Configuration.Binder": {
@@ -277,11 +303,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Configuration.CommandLine": {
@@ -304,11 +332,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Configuration.EnvironmentVariables": {
@@ -332,11 +362,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Configuration.FileExtensions": {
@@ -359,11 +391,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Configuration.Ini": {
@@ -386,11 +420,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Configuration.Json": {
@@ -413,11 +449,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Configuration.UserSecrets": {
@@ -440,11 +478,21 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "3.1.3",
+        "3.1.4",
+        "3.1.5",
+        "3.1.6",
+        "3.1.7",
+        "3.1.8",
+        "3.1.9",
+        "3.1.10",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Configuration.Xml": {
@@ -467,11 +515,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.DependencyInjection": {
@@ -491,11 +541,14 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0",
+        "5.0.1"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.DependencyInjection.Abstractions": {
@@ -515,11 +568,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.DependencyModel": {
@@ -546,16 +601,18 @@
         "3.1.3",
         "3.1.4",
         "3.1.5",
-        "3.1.6"
+        "3.1.6",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "3.1.3.0": "3.1.3",
         "3.1.4.0": "3.1.4",
         "3.1.5.0": "3.1.5",
         "3.1.6.0": "3.1.6",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.FileProviders.Abstractions": {
@@ -575,11 +632,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.FileProviders.Composite": {
@@ -599,11 +658,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.FileProviders.Physical": {
@@ -623,11 +684,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.FileSystemGlobbing": {
@@ -645,11 +708,13 @@
         "3.0.1",
         "3.0.2",
         "3.1.0",
-        "3.1.1"
+        "3.1.1",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.HostFactoryResolver.Sources": {
@@ -666,11 +731,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Hosting.Abstractions": {
@@ -688,11 +755,75 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "3.1.3",
+        "3.1.4",
+        "3.1.5",
+        "3.1.6",
+        "3.1.7",
+        "3.1.8",
+        "3.1.9",
+        "3.1.10",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
+      }
+    },
+    "Microsoft.Extensions.Hosting.Systemd": {
+      "StableVersions": [
+        "3.0.0",
+        "3.0.1",
+        "3.0.2",
+        "3.0.3",
+        "3.1.0",
+        "3.1.1",
+        "3.1.2",
+        "3.1.3",
+        "3.1.4",
+        "3.1.5",
+        "3.1.6",
+        "3.1.7",
+        "3.1.8",
+        "3.1.9",
+        "3.1.10",
+        "3.1.11",
+        "5.0.0",
+        "5.0.1"
+      ],
+      "InboxOn": {},
+      "AssemblyVersionInPackageVersion": {
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
+      }
+    },
+    "Microsoft.Extensions.Hosting.WindowsServices": {
+      "StableVersions": [
+        "3.0.0",
+        "3.0.1",
+        "3.0.2",
+        "3.0.3",
+        "3.1.0",
+        "3.1.1",
+        "3.1.2",
+        "3.1.3",
+        "3.1.4",
+        "3.1.5",
+        "3.1.6",
+        "3.1.7",
+        "3.1.8",
+        "3.1.9",
+        "3.1.10",
+        "3.1.11",
+        "5.0.0",
+        "5.0.1"
+      ],
+      "InboxOn": {},
+      "AssemblyVersionInPackageVersion": {
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Http": {
@@ -706,11 +837,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Logging": {
@@ -733,11 +866,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Logging.Abstractions": {
@@ -760,11 +895,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Logging.Configuration": {
@@ -781,11 +918,21 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "3.1.3",
+        "3.1.4",
+        "3.1.5",
+        "3.1.6",
+        "3.1.7",
+        "3.1.8",
+        "3.1.9",
+        "3.1.10",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Logging.Console": {
@@ -808,11 +955,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Logging.Debug": {
@@ -835,11 +984,21 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "3.1.3",
+        "3.1.4",
+        "3.1.5",
+        "3.1.6",
+        "3.1.7",
+        "3.1.8",
+        "3.1.9",
+        "3.1.10",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Logging.EventLog": {
@@ -862,11 +1021,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Logging.EventSource": {
@@ -886,11 +1047,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Logging.TraceSource": {
@@ -913,11 +1076,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Options": {
@@ -940,11 +1105,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Options.ConfigurationExtensions": {
@@ -967,11 +1134,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Options.DataAnnotations": {
@@ -983,11 +1152,13 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Extensions.Primitives": {
@@ -1007,22 +1178,26 @@
         "3.0.3",
         "3.1.0",
         "3.1.1",
-        "3.1.2"
+        "3.1.2",
+        "5.0.0"
       ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.IO.Redist": {
       "StableVersions": [
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.JScript": {
@@ -1050,9 +1225,10 @@
         "2.2.0",
         "2.2.1",
         "2.2.2",
-        "3.0.0"
+        "3.0.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {}
     },
     "Microsoft.NETCore.Targets": {
@@ -1072,9 +1248,10 @@
         "1.1.4",
         "2.0.0",
         "2.1.0",
-        "3.0.0"
+        "3.0.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {}
     },
     "Microsoft.Phone": {
@@ -1161,7 +1338,8 @@
       "BaselineVersion": "11.0.0",
       "InboxOn": {
         "netcoreapp3.0": "10.0.4.0",
-        "net5.0": "10.0.6.0"
+        "net5.0": "10.0.6.0",
+        "net6.0": "11.0.0.0"
       }
     },
     "Microsoft.VisualC": {
@@ -1185,6 +1363,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -1207,9 +1386,11 @@
         "4.3.0",
         "4.4.0",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "4.7.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.0.0",
@@ -1217,7 +1398,8 @@
         "4.1.0.0": "4.4.0",
         "4.1.1.0": "4.5.0",
         "4.1.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Win32.Registry.AccessControl": {
@@ -1226,9 +1408,10 @@
         "4.3.0",
         "4.4.0",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.0.0",
@@ -1236,20 +1419,24 @@
         "4.0.2.0": "4.4.0",
         "4.0.3.0": "4.5.0",
         "4.0.4.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Win32.SystemEvents": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "4.7.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.5.0",
         "4.0.1.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Windows.Compatibility": {
@@ -1259,7 +1446,8 @@
         "2.1.0",
         "2.1.1",
         "3.0.0",
-        "3.0.1"
+        "3.0.1",
+        "5.0.0"
       ],
       "InboxOn": {}
     },
@@ -1274,15 +1462,17 @@
       "StableVersions": [
         "1.0.0",
         "2.0.0",
-        "2.1.0"
+        "2.1.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "1.0.0.0": "1.0.0",
         "1.0.1.0": "1.1.0",
         "2.0.0.0": "2.0.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "Microsoft.Xna.Framework": {
@@ -1452,14 +1642,15 @@
         "4.5.0",
         "4.6.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {}
     },
     "runtime.native.System.IO.Ports": {
       "StableVersions": [
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {}
     },
     "SMDiagnostics": {
@@ -1490,7 +1681,6 @@
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
-        "uap10.0.16299": "4.0.0.0",
         "win8": "4.0.0.0",
         "wp8": "2.0.5.0",
         "wpa81": "4.0.0.0",
@@ -1546,6 +1736,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.1.0.0",
         "netstandard2.0": "4.1.0.0",
         "monoandroid10": "Any",
@@ -1576,6 +1767,7 @@
         "netcoreapp2.1": "4.0.3.0",
         "netcoreapp3.0": "4.0.4.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "uap10.0.16299": "4.0.3.0"
       },
       "AssemblyVersionInPackageVersion": {
@@ -1589,15 +1781,17 @@
       "StableVersions": [
         "4.4.0",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.4.0",
         "4.0.1.0": "4.5.0",
         "4.0.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Collections": {
@@ -1612,6 +1806,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -1655,6 +1850,7 @@
       "InboxOn": {
         "netcoreapp2.0": "4.0.14.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -1692,14 +1888,16 @@
         "1.5.0",
         "1.6.0",
         "1.7.0",
-        "1.7.1"
+        "1.7.1",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp2.0": "1.2.2.0",
         "netcoreapp2.1": "1.2.3.0",
         "netcoreapp3.0": "1.2.4.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "uap10.0.16299": "1.2.3.0"
       },
       "AssemblyVersionInPackageVersion": {
@@ -1710,7 +1908,8 @@
         "1.2.2.0": "1.4.0",
         "1.2.3.0": "1.5.0",
         "1.2.4.0": "1.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Collections.NonGeneric": {
@@ -1724,6 +1923,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -1751,6 +1951,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -1777,6 +1978,7 @@
       "InboxOn": {
         "netcoreapp2.0": "4.0.3.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -1816,14 +2018,16 @@
         "4.4.0",
         "4.4.1",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "netcoreapp3.0": "4.3.0.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable46-net451+win81": "4.0.0.0",
@@ -1845,15 +2049,17 @@
         "4.2.0.0": "4.4.0",
         "4.2.1.0": "4.5.0",
         "4.3.0.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.ComponentModel.Composition": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0",
         "monoandroid10": "Any",
@@ -1870,15 +2076,17 @@
     },
     "System.ComponentModel.Composition.Registration": {
       "StableVersions": [
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0"
       },
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.ComponentModel.DataAnnotations": {
@@ -1909,6 +2117,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -1952,6 +2161,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.1.0.0",
         "netstandard2.0": "4.1.0.0",
         "monoandroid10": "Any",
@@ -1979,6 +2189,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.1.0.0",
         "netstandard2.0": "4.1.0.0",
         "monoandroid10": "Any",
@@ -2000,9 +2211,10 @@
         "1.0.31",
         "1.1.0",
         "1.2.0",
-        "1.3.0"
+        "1.3.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {}
     },
     "System.Composition.AttributedModel": {
@@ -2010,16 +2222,21 @@
         "1.0.31",
         "1.1.0",
         "1.2.0",
-        "1.3.0"
+        "1.3.0",
+        "1.4.0",
+        "1.4.1",
+        "5.0.0",
+        "5.0.1"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "1.0.31.0": "1.0.31",
         "1.0.32.0": "1.1.0",
         "1.0.33.0": "1.2.0",
         "1.0.34.0": "1.3.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Composition.Convention": {
@@ -2027,16 +2244,21 @@
         "1.0.31",
         "1.1.0",
         "1.2.0",
-        "1.3.0"
+        "1.3.0",
+        "1.4.0",
+        "1.4.1",
+        "5.0.0",
+        "5.0.1"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "1.0.31.0": "1.0.31",
         "1.0.32.0": "1.1.0",
         "1.0.33.0": "1.2.0",
         "1.0.34.0": "1.3.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Composition.Hosting": {
@@ -2044,16 +2266,21 @@
         "1.0.31",
         "1.1.0",
         "1.2.0",
-        "1.3.0"
+        "1.3.0",
+        "1.4.0",
+        "1.4.1",
+        "5.0.0",
+        "5.0.1"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "1.0.31.0": "1.0.31",
         "1.0.32.0": "1.1.0",
         "1.0.33.0": "1.2.0",
         "1.0.34.0": "1.3.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Composition.Runtime": {
@@ -2061,16 +2288,21 @@
         "1.0.31",
         "1.1.0",
         "1.2.0",
-        "1.3.0"
+        "1.3.0",
+        "1.4.0",
+        "1.4.1",
+        "5.0.0",
+        "5.0.1"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "1.0.31.0": "1.0.31",
         "1.0.32.0": "1.1.0",
         "1.0.33.0": "1.2.0",
         "1.0.34.0": "1.3.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Composition.TypedParts": {
@@ -2078,16 +2310,21 @@
         "1.0.31",
         "1.1.0",
         "1.2.0",
-        "1.3.0"
+        "1.3.0",
+        "1.4.0",
+        "1.4.1",
+        "5.0.0",
+        "5.0.1"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "1.0.31.0": "1.0.31",
         "1.0.32.0": "1.1.0",
         "1.0.33.0": "1.2.0",
         "1.0.34.0": "1.3.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Configuration": {
@@ -2102,15 +2339,18 @@
         "4.4.0",
         "4.4.1",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0",
+        "4.7.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.4.0",
         "4.0.1.0": "4.5.0",
         "4.0.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Configuration.Install": {
@@ -2130,6 +2370,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -2198,6 +2439,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.1.0.0",
         "netstandard2.0": "4.1.0.0",
         "monoandroid10": "Any",
@@ -2222,6 +2464,7 @@
       "InboxOn": {
         "netcoreapp3.0": "4.0.0.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0"
       },
       "AssemblyVersionInPackageVersion": {
@@ -2247,25 +2490,29 @@
     "System.Data.Odbc": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.5.0",
         "4.0.1.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Data.OleDb": {
       "StableVersions": [
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Data.OracleClient": {
@@ -2331,7 +2578,8 @@
         "4.5.0.0": "4.6.0",
         "4.5.0.1": "4.6.1",
         "4.6.0.0": "4.7.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Data.SqlXml": {
@@ -2365,6 +2613,7 @@
       "InboxOn": {
         "netcoreapp2.0": "4.0.3.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -2407,6 +2656,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -2448,9 +2698,10 @@
         "4.4.1",
         "4.5.0",
         "4.5.1",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp2.0": "4.0.2.1",
         "netcoreapp2.1": "4.0.3.1",
@@ -2465,20 +2716,23 @@
         "4.0.3.0": "4.5.0",
         "4.0.3.1": "4.5.1",
         "4.0.4.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Diagnostics.EventLog": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.5.0",
         "4.0.1.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Diagnostics.FileVersionInfo": {
@@ -2491,6 +2745,7 @@
         "netcoreapp2.0": "4.0.2.0",
         "netcoreapp2.1": "4.0.3.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -2509,9 +2764,10 @@
     "System.Diagnostics.PerformanceCounter": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "monoandroid10": "Any",
         "monotouch10": "Any",
@@ -2523,7 +2779,8 @@
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.5.0",
         "4.0.1.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Diagnostics.Process": {
@@ -2536,6 +2793,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.1.0.0",
         "netstandard2.0": "4.1.0.0",
         "monoandroid10": "Any",
@@ -2564,6 +2822,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.2.0",
         "netstandard2.0": "4.0.2.0",
         "monoandroid10": "Any",
@@ -2591,6 +2850,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -2617,6 +2877,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -2667,6 +2928,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -2695,6 +2957,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net451": "4.0.10.0",
         "net46": "4.0.20.0",
@@ -2727,9 +2990,10 @@
     "System.DirectoryServices": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0"
       },
@@ -2740,9 +3004,10 @@
     "System.DirectoryServices.AccountManagement": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0"
       },
@@ -2753,9 +3018,10 @@
     "System.DirectoryServices.Protocols": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0"
       },
@@ -2775,12 +3041,16 @@
       "StableVersions": [
         "4.5.0",
         "4.5.1",
+        "4.5.2",
         "4.6.0",
         "4.6.1",
         "4.6.2",
-        "4.7.0"
+        "4.7.0",
+        "4.7.1",
+        "5.0.0",
+        "5.0.1"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "monoandroid10": "Any",
         "monotouch10": "Any",
@@ -2792,9 +3062,12 @@
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.5.0",
         "4.0.0.1": "4.5.1",
+        "4.0.0.2": "4.5.2",
         "4.0.1.0": "4.6.0",
         "4.0.1.1": "4.6.1",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "5.0.0.1": "5.0.1",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Drawing.Design": {
@@ -2812,6 +3085,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.2.0.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -2845,6 +3119,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -2884,15 +3159,23 @@
       }
     },
     "System.Formats.Asn1": {
+      "StableVersions": [
+        "5.0.0"
+      ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Formats.Cbor": {
+      "StableVersions": [
+        "5.0.0"
+      ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Globalization": {
@@ -2907,6 +3190,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -2950,6 +3234,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -2977,6 +3262,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -3020,6 +3306,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "net461": "4.1.0.0",
@@ -3065,6 +3352,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net461": "4.1.1.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -3104,6 +3392,7 @@
       "InboxOn": {
         "netcoreapp2.0": "4.0.0.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -3126,6 +3415,7 @@
         "netcoreapp2.0": "4.0.3.0",
         "netcoreapp2.1": "4.0.4.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -3153,6 +3443,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -3175,9 +3466,10 @@
         "4.3.0",
         "4.4.0",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.0.0",
@@ -3185,7 +3477,8 @@
         "4.0.2.0": "4.4.0",
         "4.0.3.0": "4.5.0",
         "4.0.4.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.IO.FileSystem.DriveInfo": {
@@ -3200,6 +3493,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -3226,6 +3520,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -3252,6 +3547,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -3278,6 +3574,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -3309,6 +3606,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -3331,9 +3629,10 @@
         "4.4.0",
         "4.4.1",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.0.0",
@@ -3341,7 +3640,8 @@
         "4.0.2.0": "4.4.0",
         "4.0.3.0": "4.5.0",
         "4.0.4.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.IO.Pipelines": {
@@ -3350,17 +3650,18 @@
         "4.5.1",
         "4.5.2",
         "4.5.3",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0",
+        "5.0.1"
       ],
-      "BaselineVersion": "5.0.0",
-      "InboxOn": {
-        "net5.0": "5.0.0.0"
-      },
+      "BaselineVersion": "6.0.0",
+      "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.5.0",
         "4.0.0.1": "4.5.2",
         "4.0.1.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.IO.Pipes": {
@@ -3373,6 +3674,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "uap10.0.16299": "4.1.1.0"
@@ -3387,24 +3689,28 @@
         "4.3.0",
         "4.4.0",
         "4.5.0",
-        "4.5.1"
+        "4.5.1",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.1.0": "4.3.0",
         "4.0.2.0": "4.4.0",
         "4.0.3.0": "4.5.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.IO.Ports": {
       "StableVersions": [
         "4.4.0",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "4.7.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "uap10.0.16299": "4.0.1.0"
       },
@@ -3412,7 +3718,8 @@
         "4.0.0.0": "4.4.0",
         "4.0.1.0": "4.5.0",
         "4.0.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.IO.UnmanagedMemoryStream": {
@@ -3426,6 +3733,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -3474,6 +3782,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net461": "4.1.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -3518,6 +3827,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "net461": "4.1.0.0",
@@ -3561,6 +3871,7 @@
       "InboxOn": {
         "netcoreapp2.0": "4.0.3.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -3590,10 +3901,11 @@
         "4.0.1",
         "4.3.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp2.0": "4.0.3.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -3627,9 +3939,10 @@
     "System.Management": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0"
       },
@@ -3655,6 +3968,7 @@
         "netcoreapp2.1": "4.1.0.0",
         "netcoreapp3.0": "4.2.0.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
         "xamarinios10": "Any",
@@ -3667,6 +3981,16 @@
         "4.0.1.0": "4.5.0",
         "4.0.1.1": "4.5.3",
         "4.1.0.0": "4.6.0"
+      }
+    },
+    "System.Memory.Data": {
+      "StableVersions": [
+        "1.0.0"
+      ],
+      "InboxOn": {},
+      "AssemblyVersionInPackageVersion": {
+        "1.0.0.0": "1.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Messaging": {
@@ -3743,6 +4067,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net461": "4.1.1.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -3769,9 +4094,13 @@
       }
     },
     "System.Net.Http.Json": {
+      "StableVersions": [
+        "5.0.0"
+      ],
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Net.Http.Rtc": {
@@ -3825,9 +4154,10 @@
         "4.5.2",
         "4.5.3",
         "4.5.4",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.0.0",
@@ -3838,7 +4168,8 @@
         "4.0.3.1": "4.5.1",
         "4.0.3.2": "4.5.3",
         "4.0.4.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Net.HttpListener": {
@@ -3846,6 +4177,7 @@
         "netcoreapp2.0": "4.0.0.0",
         "netcoreapp2.1": "4.0.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
         "uap10.0.16299": "4.0.1.0",
@@ -3860,6 +4192,7 @@
         "netcoreapp2.0": "4.0.0.0",
         "netcoreapp2.1": "4.0.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
         "uap10.0.16299": "4.0.1.0",
@@ -3879,6 +4212,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -3905,6 +4239,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "net461": "4.1.0.0",
@@ -3947,6 +4282,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -3977,6 +4313,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -4012,7 +4349,7 @@
     },
     "System.Net.Quic": {
       "InboxOn": {
-        "netcoreapp3.0": "4.2.1.0"
+        "net6.0": "6.0.0.0"
       }
     },
     "System.Net.Requests": {
@@ -4028,6 +4365,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -4075,6 +4413,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -4095,6 +4434,7 @@
         "netcoreapp2.0": "4.0.0.0",
         "netcoreapp2.1": "4.0.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
         "uap10.0.16299": "4.0.1.0",
@@ -4115,6 +4455,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.1.0.0",
         "netstandard2.0": "4.1.0.0",
         "monoandroid10": "Any",
@@ -4147,6 +4488,7 @@
         "netcoreapp2.0": "4.0.0.0",
         "netcoreapp2.1": "4.0.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "uap10.0.16299": "4.0.1.0"
       }
     },
@@ -4161,6 +4503,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net46": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -4182,6 +4525,7 @@
         "netcoreapp2.0": "4.0.0.0",
         "netcoreapp2.1": "4.0.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "uap10.0.16299": "4.0.1.0"
       }
     },
@@ -4195,6 +4539,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -4224,6 +4569,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -4245,9 +4591,9 @@
         "4.5.1",
         "4.5.2",
         "4.5.3",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.5.0",
@@ -4282,12 +4628,13 @@
       "StableVersions": [
         "0.1.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "0.1.0.0": "0.1.0",
         "0.2.0.0": "0.2.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Numerics.Vectors": {
@@ -4305,6 +4652,7 @@
         "netcoreapp2.1": "4.1.4.0",
         "netcoreapp3.0": "4.1.5.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net46": "4.0.0.0",
         "net461": "4.1.2.0",
         "monoandroid10": "Any",
@@ -4330,7 +4678,7 @@
         "4.0.1",
         "4.3.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "uap10.0.16299": "4.0.4.0"
       },
@@ -4353,6 +4701,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -4410,6 +4759,11 @@
         "4.1.2.0": "4.3.0"
       }
     },
+    "System.Private.Runtime.InteropServices.JavaScript": {
+      "InboxOn": {
+        "net5.0": "5.0.0.0"
+      }
+    },
     "System.Private.Uri": {
       "StableVersions": [
         "4.0.0",
@@ -4440,6 +4794,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "net461": "4.1.0.0",
@@ -4478,9 +4833,10 @@
         "4.0.0",
         "4.0.1",
         "4.3.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0",
         "portable46-net451+win81": "4.0.0.0",
@@ -4512,8 +4868,9 @@
         "netcoreapp2.0": "4.0.3.0",
         "netcoreapp2.1": "4.0.4.0",
         "netcoreapp3.0": "4.0.5.0",
-        "netstandard2.1": "4.0.5.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
+        "netstandard2.1": "4.0.5.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
         "uap10.0.16299": "4.0.4.0",
@@ -4545,6 +4902,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "netstandard2.1": "4.0.0.0",
         "monoandroid10": "Any",
@@ -4574,6 +4932,7 @@
         "netcoreapp2.0": "4.0.3.0",
         "netcoreapp3.0": "4.1.0.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+wp8": "4.0.0.0",
         "netstandard2.1": "4.0.0.0",
@@ -4604,6 +4963,7 @@
         "netcoreapp2.0": "4.0.3.0",
         "netcoreapp3.0": "4.1.0.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+wp8": "4.0.0.0",
         "netstandard2.1": "4.0.0.0",
@@ -4632,6 +4992,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -4674,14 +5035,16 @@
         "1.4.3",
         "1.5.0",
         "1.6.0",
-        "1.7.0"
+        "1.7.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp2.0": "1.4.2.0",
         "netcoreapp2.1": "1.4.3.0",
         "netcoreapp3.0": "1.4.4.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "uap10.0.16299": "1.4.3.0"
       },
       "AssemblyVersionInPackageVersion": {
@@ -4693,18 +5056,21 @@
         "1.4.2.0": "1.5.0",
         "1.4.3.0": "1.6.0",
         "1.4.4.0": "1.7.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Reflection.MetadataLoadContext": {
       "StableVersions": [
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Reflection.Primitives": {
@@ -4718,6 +5084,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -4764,6 +5131,7 @@
         "netcoreapp2.1": "4.1.3.0",
         "netcoreapp3.0": "4.1.4.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
         "uap10.0.16299": "4.1.3.0",
@@ -4779,18 +5147,21 @@
         "4.1.2.0": "4.4.0",
         "4.1.3.0": "4.5.0",
         "4.1.4.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Resources.Extensions": {
       "StableVersions": [
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Resources.Reader": {
@@ -4803,6 +5174,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "uap10.0.16299": "4.1.1.0"
@@ -4833,6 +5205,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -4873,6 +5246,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "uap10.0.16299": "4.1.1.0"
@@ -4898,6 +5272,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net451": "4.0.10.0",
         "net46": "4.0.20.0",
@@ -4937,9 +5312,10 @@
     "System.Runtime.Caching": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0",
         "monoandroid10": "Any",
@@ -4962,9 +5338,10 @@
         "4.5.1",
         "4.5.2",
         "4.6.0",
-        "4.7.0"
+        "4.7.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp3.0": "4.0.5.0",
         "net5.0": "5.0.0.0"
@@ -4974,7 +5351,8 @@
         "4.0.4.0": "4.5.0",
         "4.0.4.1": "4.5.2",
         "4.0.5.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Runtime.CompilerServices.VisualC": {
@@ -4987,6 +5365,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -5022,6 +5401,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "net461": "4.1.0.0",
@@ -5066,6 +5446,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net46": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -5095,6 +5476,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net451": "4.0.10.0",
         "net46": "4.0.20.0",
@@ -5124,11 +5506,6 @@
         "4.1.1.0": "4.3.0"
       }
     },
-    "System.Runtime.InteropServices.JavaScript": {
-      "InboxOn": {
-        "net5.0": "5.0.0.0"
-      }
-    },
     "System.Runtime.InteropServices.RuntimeInformation": {
       "StableVersions": [
         "4.0.0",
@@ -5139,6 +5516,7 @@
         "netcoreapp2.0": "4.0.2.0",
         "netcoreapp2.1": "4.0.3.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
         "uap10.0.16299": "4.0.3.0",
@@ -5159,10 +5537,11 @@
         "4.0.1",
         "4.3.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp2.0": "4.0.3.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -5227,6 +5606,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -5292,6 +5672,7 @@
         "netcoreapp2.0": "4.0.2.0",
         "netcoreapp2.1": "4.0.3.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -5323,6 +5704,7 @@
       "InboxOn": {
         "netcoreapp2.0": "4.0.4.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -5367,6 +5749,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "net461": "4.1.1.0",
@@ -5416,6 +5799,7 @@
         "netcoreapp2.0": "4.1.3.0",
         "netcoreapp2.1": "4.1.4.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "net461": "4.1.1.0",
@@ -5458,7 +5842,7 @@
         "4.3.0",
         "4.6.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0",
         "net451": "4.0.10.0",
@@ -5488,7 +5872,7 @@
         "4.3.0",
         "4.6.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0",
         "portable46-win81+wpa81": "4.0.0.0",
@@ -5518,19 +5902,19 @@
         "4.4.0",
         "4.4.1",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
-      "InboxOn": {
-        "uap10.0.16299": "4.1.1.0"
-      },
+      "BaselineVersion": "6.0.0",
+      "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.0.0",
         "4.0.1.0": "4.3.0",
         "4.1.0.0": "4.4.0",
         "4.1.1.0": "4.5.0",
         "4.1.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Security.Claims": {
@@ -5544,6 +5928,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -5572,6 +5957,7 @@
         "netcoreapp2.0": "4.3.0.0",
         "netcoreapp2.1": "4.3.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "netstandard2.0": "4.2.0.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
@@ -5595,9 +5981,10 @@
         "4.4.0",
         "4.5.0",
         "4.6.0",
-        "4.6.1"
+        "4.6.1",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "monoandroid10": "Any",
         "monotouch10": "Any",
@@ -5616,7 +6003,8 @@
         "4.3.1.0": "4.5.0",
         "4.3.2.0": "4.6.0",
         "4.3.2.1": "4.6.1",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Security.Cryptography.Csp": {
@@ -5629,6 +6017,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -5654,6 +6043,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -5678,9 +6068,11 @@
         "4.4.0",
         "4.5.0",
         "4.5.1",
-        "4.6.0"
+        "4.6.0",
+        "4.7.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.0.0",
@@ -5689,7 +6081,8 @@
         "4.1.1.0": "4.5.0",
         "4.1.1.1": "4.5.1",
         "4.1.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Security.Cryptography.Pkcs": {
@@ -5700,9 +6093,11 @@
         "4.5.0",
         "4.5.1",
         "4.5.2",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0",
+        "5.0.1"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.0.0",
@@ -5713,7 +6108,8 @@
         "4.0.3.2": "4.5.2",
         "4.0.4.0": "4.6.0",
         "4.1.0.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Security.Cryptography.Primitives": {
@@ -5726,6 +6122,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -5747,9 +6144,10 @@
         "4.3.0",
         "4.4.0",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "monoandroid10": "Any",
         "monotouch10": "Any",
@@ -5764,7 +6162,8 @@
         "4.0.2.0": "4.4.0",
         "4.0.3.0": "4.5.0",
         "4.0.4.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Security.Cryptography.X509Certificates": {
@@ -5781,6 +6180,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.1.0.0",
         "netstandard2.0": "4.1.0.0",
         "monoandroid10": "Any",
@@ -5803,15 +6203,17 @@
         "4.4.1",
         "4.4.2",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.4.0",
         "4.0.1.0": "4.5.0",
         "4.0.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Security.Permissions": {
@@ -5819,15 +6221,18 @@
         "4.4.0",
         "4.4.1",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "4.7.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.4.0",
         "4.0.1.0": "4.5.0",
         "4.0.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Security.Principal": {
@@ -5841,6 +6246,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -5879,12 +6285,11 @@
         "4.4.1",
         "4.5.0",
         "4.5.1",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
-      "InboxOn": {
-        "uap10.0.16299": "4.1.1.0"
-      },
+      "BaselineVersion": "6.0.0",
+      "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.0.0",
         "4.0.1.0": "4.3.0",
@@ -5892,7 +6297,8 @@
         "4.1.1.0": "4.5.0",
         "4.1.1.1": "4.5.1",
         "4.1.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Security.SecureString": {
@@ -5905,6 +6311,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -6059,14 +6466,16 @@
     "System.ServiceModel.Syndication": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.5.0",
         "4.0.1.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.ServiceModel.Web": {
@@ -6109,9 +6518,10 @@
         "4.4.0",
         "4.4.1",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.1.0.0": "4.1.0",
@@ -6119,12 +6529,17 @@
         "4.2.0.0": "4.4.0",
         "4.2.1.0": "4.5.0",
         "4.2.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Speech": {
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "net45": "4.0.0.0"
+      },
+      "AssemblyVersionInPackageVersion": {
+        "4.0.0.0": "6.0.0"
       }
     },
     "System.Text.Encoding": {
@@ -6139,6 +6554,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -6179,12 +6595,16 @@
         "4.4.0",
         "4.5.0",
         "4.5.1",
-        "4.6.0"
+        "4.6.0",
+        "4.7.0",
+        "4.7.1",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp3.0": "4.1.2.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
         "uap10.0.16299": "4.1.1.0",
@@ -6200,7 +6620,8 @@
         "4.1.0.0": "4.4.0",
         "4.1.1.0": "4.5.0",
         "4.1.2.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Text.Encoding.Extensions": {
@@ -6215,6 +6636,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -6255,9 +6677,10 @@
         "4.3.1",
         "4.4.0",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp3.0": "4.0.4.0",
         "net5.0": "5.0.0.0"
@@ -6268,21 +6691,27 @@
         "4.0.2.0": "4.4.0",
         "4.0.3.0": "4.5.0",
         "4.0.4.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Text.Json": {
       "StableVersions": [
-        "4.6.0"
+        "4.6.0",
+        "4.7.0",
+        "4.7.1",
+        "4.7.2",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp3.0": "4.0.0.0",
         "net5.0": "5.0.0.0"
       },
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Text.RegularExpressions": {
@@ -6299,6 +6728,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "net461": "4.1.0.0",
@@ -6344,6 +6774,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -6382,9 +6813,10 @@
         "4.3.0",
         "4.4.0",
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.0.0",
@@ -6392,15 +6824,17 @@
         "4.0.2.0": "4.4.0",
         "4.0.3.0": "4.5.0",
         "4.0.4.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Threading.Channels": {
       "StableVersions": [
         "4.5.0",
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp3.0": "4.0.1.0",
         "net5.0": "5.0.0.0"
@@ -6408,7 +6842,8 @@
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.5.0",
         "4.0.1.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Threading.Overlapped": {
@@ -6422,6 +6857,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "uap10.0.16299": "4.1.1.0"
@@ -6452,6 +6888,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -6492,14 +6929,16 @@
         "4.7.0",
         "4.8.0",
         "4.9.0",
-        "4.10.0"
+        "4.10.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {
         "netcoreapp2.0": "4.6.2.0",
         "netcoreapp2.1": "4.6.3.0",
         "netcoreapp3.0": "4.6.4.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "uap10.0.16299": "4.6.3.0"
       },
       "AssemblyVersionInPackageVersion": {
@@ -6509,7 +6948,8 @@
         "4.6.2.0": "4.8.0",
         "4.6.3.0": "4.9.0",
         "4.6.4.0": "4.10.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Threading.Tasks.Extensions": {
@@ -6528,6 +6968,7 @@
         "netcoreapp2.0": "4.1.1.0",
         "netcoreapp2.1": "4.3.0.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
         "xamarinios10": "Any",
@@ -6554,6 +6995,7 @@
       "InboxOn": {
         "netcoreapp2.0": "4.0.3.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
@@ -6587,6 +7029,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.0.0",
         "netstandard2.0": "4.0.0.0",
         "monoandroid10": "Any",
@@ -6612,6 +7055,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.10.0",
         "netstandard2.0": "4.0.10.0",
         "monoandroid10": "Any",
@@ -6638,6 +7082,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net451": "4.0.0.0",
         "portable46-net451+win81+wpa81": "4.0.0.0",
         "portable46-win81+wpa81": "4.0.0.0",
@@ -6678,15 +7123,17 @@
         "netcoreapp2.0": "4.0.0.0",
         "netcoreapp2.1": "4.0.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "uap10.0.16299": "4.0.1.0"
       }
     },
     "System.Utf8String.Experimental": {
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.ValueTuple": {
@@ -6702,6 +7149,7 @@
         "netcoreapp2.1": "4.0.3.0",
         "netcoreapp3.0": "4.0.4.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "netstandard2.0": "4.0.2.0",
         "monoandroid10": "Any",
         "monotouch10": "Any",
@@ -6781,6 +7229,7 @@
         "netcoreapp2.0": "4.0.0.0",
         "netcoreapp2.1": "4.0.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "uap10.0.16299": "4.0.1.0"
       }
     },
@@ -6844,13 +7293,15 @@
     },
     "System.Windows.Extensions": {
       "StableVersions": [
-        "4.6.0"
+        "4.6.0",
+        "5.0.0"
       ],
-      "BaselineVersion": "5.0.0",
+      "BaselineVersion": "6.0.0",
       "InboxOn": {},
       "AssemblyVersionInPackageVersion": {
         "4.0.0.0": "4.6.0",
-        "5.0.0.0": "5.0.0"
+        "5.0.0.0": "5.0.0",
+        "6.0.0.0": "6.0.0"
       }
     },
     "System.Windows.Forms": {
@@ -6973,6 +7424,7 @@
         "netcoreapp2.0": "4.2.0.0",
         "netcoreapp2.1": "4.2.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "net461": "4.1.0.0",
@@ -7045,6 +7497,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -7088,6 +7541,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -7116,6 +7570,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net45": "4.0.0.0",
         "net46": "4.0.10.0",
         "portable45-net45+win8+wpa81": "4.0.0.0",
@@ -7159,6 +7614,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",
@@ -7186,6 +7642,7 @@
         "netcoreapp2.0": "4.1.0.0",
         "netcoreapp2.1": "4.1.1.0",
         "net5.0": "5.0.0.0",
+        "net6.0": "6.0.0.0",
         "net461": "4.0.1.0",
         "netstandard2.0": "4.0.1.0",
         "monoandroid10": "Any",

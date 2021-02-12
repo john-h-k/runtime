@@ -205,7 +205,6 @@ namespace CoreclrTestLib
 
         static bool CollectCrashDump(Process process, string path)
         {
-            ProcessStartInfo createdumpInfo = null;
             string coreRoot = Environment.GetEnvironmentVariable("CORE_ROOT");
             string createdumpPath = Path.Combine(coreRoot, "createdump");
             string arguments = $"--name \"{path}\" {process.Id} --withheap";
@@ -220,6 +219,7 @@ namespace CoreclrTestLib
             {
                 createdump.StartInfo.FileName = "sudo";
                 createdump.StartInfo.Arguments = $"{createdumpPath} " + arguments;
+                createdump.StartInfo.EnvironmentVariables.Add("COMPlus_DbgEnableElfDumpOnMacOS", "1");
             }
 
             createdump.StartInfo.UseShellExecute = false;
@@ -284,7 +284,7 @@ namespace CoreclrTestLib
             return children;
         }
 
-        public int RunTest(string executable, string outputFile, string errorFile)
+        public int RunTest(string executable, string outputFile, string errorFile, string category, string testBinaryBase)
         {
             Debug.Assert(outputFile != errorFile);
 
@@ -319,6 +319,8 @@ namespace CoreclrTestLib
                 process.StartInfo.UseShellExecute = false;
                 process.StartInfo.RedirectStandardOutput = true;
                 process.StartInfo.RedirectStandardError = true;
+                process.StartInfo.EnvironmentVariables.Add("__Category", category);
+                process.StartInfo.EnvironmentVariables.Add("__TestBinaryBase", testBinaryBase);
 
                 DateTime startTime = DateTime.Now;
                 process.Start();

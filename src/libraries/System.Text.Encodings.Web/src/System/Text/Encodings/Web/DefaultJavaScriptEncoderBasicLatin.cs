@@ -33,7 +33,7 @@ namespace System.Text.Encodings.Web
             // it's unfortunately common for developers to
             // forget to HTML-encode a string once it has been JS-encoded,
             // so this offers extra protection.
-            DefaultHtmlEncoder.ForbidHtmlCharacters(allowedCharacters);
+            HtmlEncoderHelper.ForbidHtmlCharacters(allowedCharacters);
 
             // '\' (U+005C REVERSE SOLIDUS) must always be escaped in Javascript / ECMAScript / JSON.
             // '/' (U+002F SOLIDUS) is not Javascript / ECMAScript / JSON-sensitive so doesn't need to be escaped.
@@ -103,11 +103,19 @@ namespace System.Text.Encodings.Web
 #endif
             Debug.Assert(textLength > 0 && ptr < end);
 
+            // For performance on the Mono interpreter, avoid referencing the static table for every value.
+            ReadOnlySpan<byte> allowListLocal = AllowList;
+
             do
             {
                 Debug.Assert(text <= ptr && ptr < (text + textLength));
 
-                if (NeedsEscaping(*(char*)ptr))
+                char value = *(char*)ptr;
+
+                // NeedsEscaping() is lifted below for perf; verify semantics remain consistent.
+                Debug.Assert((value > LastAsciiCharacter || allowListLocal[value] == 0) == NeedsEscaping(value));
+
+                if (value > LastAsciiCharacter || allowListLocal[value] == 0)
                 {
                     goto Return;
                 }
@@ -276,11 +284,17 @@ namespace System.Text.Encodings.Web
 #endif
                 Debug.Assert(textLength > 0 && ptr < end);
 
+                // For performance on the Mono interpreter, avoid referencing the static table for every value.
+                ReadOnlySpan<byte> allowListLocal = AllowList;
+
                 do
                 {
                     Debug.Assert(pValue <= ptr && ptr < (pValue + utf8Text.Length));
 
-                    if (NeedsEscaping(*ptr))
+                    // NeedsEscaping() is lifted below for perf; verify semantics remain consistent.
+                    Debug.Assert((allowListLocal[*ptr] == 0) == NeedsEscaping(*ptr));
+
+                    if (allowListLocal[*ptr] == 0)
                     {
                         goto Return;
                     }
@@ -375,12 +389,12 @@ namespace System.Text.Encodings.Web
         // surrogate pairs in the output.
         public override int MaxOutputCharactersPerInputCharacter => 12; // "\uFFFF\uFFFF" is the longest encoded form
 
-        private static readonly char[] s_b = new char[] { '\\', 'b' };
-        private static readonly char[] s_t = new char[] { '\\', 't' };
-        private static readonly char[] s_n = new char[] { '\\', 'n' };
-        private static readonly char[] s_f = new char[] { '\\', 'f' };
-        private static readonly char[] s_r = new char[] { '\\', 'r' };
-        private static readonly char[] s_back = new char[] { '\\', '\\' };
+        private const string s_b = "\\b";
+        private const string s_t = "\\t";
+        private const string s_n = "\\n";
+        private const string s_f = "\\f";
+        private const string s_r = "\\r";
+        private const string s_back = "\\\\";
 
         // Writes a scalar value as a JavaScript-escaped character (or sequence of characters).
         // See ECMA-262, Sec. 7.8.4, and ECMA-404, Sec. 9
@@ -403,12 +417,13 @@ namespace System.Text.Encodings.Web
             // be written out as numeric entities for defense-in-depth.
             // See UnicodeEncoderBase ctor comments for more info.
 
+            Span<char> destination = new Span<char>(buffer, bufferLength);
             if (!WillEncode(unicodeScalar))
             {
-                return TryWriteScalarAsChar(unicodeScalar, buffer, bufferLength, out numberOfCharactersWritten);
+                return TryWriteScalarAsChar(unicodeScalar, destination, out numberOfCharactersWritten);
             }
 
-            char[] toCopy;
+            string toCopy;
             switch (unicodeScalar)
             {
                 case '\b':
@@ -432,7 +447,7 @@ namespace System.Text.Encodings.Web
                 default:
                     return JavaScriptEncoderHelper.TryWriteEncodedScalarAsNumericEntity(unicodeScalar, buffer, bufferLength, out numberOfCharactersWritten);
             }
-            return TryCopyCharacters(toCopy, buffer, bufferLength, out numberOfCharactersWritten);
+            return TryCopyCharacters(toCopy, destination, out numberOfCharactersWritten);
         }
 
         private static ReadOnlySpan<byte> AllowList => new byte[byte.MaxValue + 1]

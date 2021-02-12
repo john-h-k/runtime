@@ -593,7 +593,7 @@ namespace System.Linq.Expressions.Interpreter
             }
             else if (index.ArgumentCount != 1)
             {
-                _instructions.EmitCall(index.Object!.Type.GetMethod("Get", BindingFlags.Public | BindingFlags.Instance)!);
+                _instructions.EmitCall(TypeUtils.GetArrayGetMethod(index.Object!.Type));
             }
             else
             {
@@ -632,7 +632,7 @@ namespace System.Linq.Expressions.Interpreter
             }
             else if (index.ArgumentCount != 1)
             {
-                _instructions.EmitCall(index.Object!.Type.GetMethod("Set", BindingFlags.Public | BindingFlags.Instance)!);
+                _instructions.EmitCall(TypeUtils.GetArraySetMethod(index.Object!.Type));
             }
             else
             {
@@ -1159,7 +1159,7 @@ namespace System.Linq.Expressions.Interpreter
 
                 if (from == to)
                 {
-                    if ((object?)enumTypeTo != null)
+                    if (enumTypeTo is not null)
                     {
                         // If casting between enums of the same underlying type or to enum from the underlying
                         // type, there's no need for the numeric conversion, so just include a null-check if
@@ -1189,7 +1189,7 @@ namespace System.Linq.Expressions.Interpreter
                     }
                 }
 
-                if ((object?)enumTypeTo != null)
+                if (enumTypeTo is not null)
                 {
                     // Convert from underlying to the enum
                     _instructions.EmitCastToEnum(enumTypeTo);
@@ -2343,7 +2343,7 @@ namespace System.Linq.Expressions.Interpreter
                         var call = (MethodCallExpression)node;
                         if (!call.Method.IsStatic &&
                             call.Object!.Type.IsArray &&
-                            call.Method == call.Object.Type.GetMethod("Get", BindingFlags.Public | BindingFlags.Instance))
+                            call.Method == TypeUtils.GetArrayGetMethod(call.Object.Type))
                         {
                             return CompileMultiDimArrayAccess(
                                 call.Object,
@@ -2380,9 +2380,9 @@ namespace System.Linq.Expressions.Interpreter
                 indexLocals[i] = argTmp;
             }
 
-            _instructions.EmitCall(array.Type.GetMethod("Get", BindingFlags.Public | BindingFlags.Instance)!);
+            _instructions.EmitCall(TypeUtils.GetArrayGetMethod(array.Type));
 
-            return new IndexMethodByRefUpdater(objTmp, indexLocals, array.Type.GetMethod("Set", BindingFlags.Public | BindingFlags.Instance)!, index);
+            return new IndexMethodByRefUpdater(objTmp, indexLocals, TypeUtils.GetArraySetMethod(array.Type), index);
         }
 
         private void CompileNewExpression(Expression expr)
@@ -2671,7 +2671,7 @@ namespace System.Linq.Expressions.Interpreter
 
             if (typeof(LambdaExpression).IsAssignableFrom(node.Expression.Type))
             {
-                MethodInfo compMethod = node.Expression.Type.GetMethod("Compile", Array.Empty<Type>())!;
+                MethodInfo compMethod = LambdaExpression.GetCompileMethod(node.Expression.Type);
                 CompileMethodCallExpression(
                     Expression.Call(
                         node.Expression,
