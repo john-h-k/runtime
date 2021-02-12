@@ -7817,14 +7817,18 @@ enum
 {
     PREFIX_TAILCALL_EXPLICIT = 0x00000001, // call has "tail" IL prefix
     PREFIX_TAILCALL_IMPLICIT =
-        0x00000010, // call is treated as having "tail" prefix even though there is no "tail" IL prefix
+        0x00000002, // call is treated as having "tail" prefix even though there is no "tail" IL prefix
     PREFIX_TAILCALL_STRESS =
-        0x00000100, // call doesn't "tail" IL prefix but is treated as explicit because of tail call stress
-    PREFIX_TAILCALL    = (PREFIX_TAILCALL_EXPLICIT | PREFIX_TAILCALL_IMPLICIT | PREFIX_TAILCALL_STRESS),
-    PREFIX_VOLATILE    = 0x00001000,
-    PREFIX_UNALIGNED   = 0x00010000,
-    PREFIX_CONSTRAINED = 0x00100000,
-    PREFIX_READONLY    = 0x01000000
+        0x00000004, // call doesn't "tail" IL prefix but is treated as explicit because of tail call stress
+    PREFIX_TAILCALL      = (PREFIX_TAILCALL_EXPLICIT | PREFIX_TAILCALL_IMPLICIT | PREFIX_TAILCALL_STRESS),
+    PREFIX_VOLATILE      = 0x00000008,
+    PREFIX_UNALIGNED     = 0x00000010,
+    PREFIX_CONSTRAINED   = 0x00000020,
+    PREFIX_READONLY      = 0x00000040,
+    PREFIX_NO_TYPECHECK  = 0x00000080,
+    PREFIX_NO_RANGECHECK = 0x00000100,
+    PREFIX_NO_NULLCHECK  = 0x00000200,
+    PREFIX_NO_TYPERANGENULLCHECK = (PREFIX_NO_TYPECHECK | PREFIX_NO_RANGECHECK | PREFIX_NO_NULLCHECK)
 };
 
 /********************************************************************************
@@ -10625,6 +10629,7 @@ static OPCODE impGetNonPrefixOpcode(const BYTE* codeAddr, const BYTE* codeEndp)
             case CEE_TAILCALL:
             case CEE_CONSTRAINED:
             case CEE_READONLY:
+            case CEE_NOCHECK:
                 break;
             default:
                 return opcode;
@@ -10634,6 +10639,38 @@ static OPCODE impGetNonPrefixOpcode(const BYTE* codeAddr, const BYTE* codeEndp)
     }
 
     return CEE_ILLEGAL;
+}
+
+/*****************************************************************************/
+// Checks whether the opcode is a valid opcode for no. (check elision) prefix
+static void impValidateCheckElisionOpcode(const BYTE* codeAddr, const BYTE* codeEndp, int flags)
+{
+    OPCODE opcode = impGetNonPrefixOpcode(codeAddr, codeEndp);
+
+    if ((flags & PREFIX_NO_TYPECHECK) != 0)
+    {
+        if (!(opcode == CEE_CASTCLASS || opcode == CEE_UNBOX || opcode == CEE_LDELEMA
+            || (opcode >= CEE_STELEM_I && opcode <= CEE_STELEM_REF) || opcode == CEE_STELEM))
+        {
+            BADCODE("Invalid opcode for no. prefix with typecheck flag");
+        }
+    }
+    if ((flags & PREFIX_NO_RANGECHECK) != 0)
+    {
+        // Covers LDELEMA, LDELEM_*, and STELEM_*
+        if (!(opcode >= CEE_LDELEMA && opcode <= CEE_STELEM))
+        {
+            BADCODE("Invalid opcode for no. prefix with rangecheck flag");
+        }
+    }
+    if ((flags & PREFIX_NO_NULLCHECK) != 0)
+    {
+        if (!(opcode == CEE_LDFLD || opcode == CEE_STFLD || opcode == CEE_CALLVIRT || opcode == CEE_LDVIRTFTN
+                || (opcode >= CEE_LDELEMA && opcode <= CEE_STELEM)))
+        {
+            BADCODE("Invalid opcode for no. prefix with nullcheck flag");
+        }
+    }
 }
 
 /*****************************************************************************/
@@ -13985,6 +14022,36 @@ void Compiler::impImportBlockCode(BasicBlock* block)
                 impValidateMemoryAccessOpcode(codeAddr, codeEndp, true);
 
                 assert(sz == 0);
+                goto PREFIX;
+
+            case CEE_NOCHECK:
+                assert(sz == 1);
+                JITDUMP(" no.");
+                Verify(!(prefixFlags & PREFIX_NO_TYPERANGENULLCHECK), "Multiple no. prefixes");
+
+                {
+                    int flags = getU1LittleEndian(codeAddr);
+
+                    JITDUMP(" %u", flags);
+
+                    ++codeAddr;
+
+                    // PREFIX_NO_TYPECHECK = 0x000000040 which is 0x1 (the value of typecheck flag) << 6
+                    // The 2 subsequent flags are just left shift of 1, the same as the nullcheck/rangecheck IL flags, so we just have to
+                    // left shift by 6 to transform
+                    flags <<= 6;
+                    if ((flags & (~PREFIX_NO_TYPERANGENULLCHECK)) != 0)
+                    {
+                        BADCODE("no. followed by invalid flags");
+                    }
+
+                    impValidateCheckElisionOpcode(codeAddr, codeEndp, flags);
+
+
+
+                    prefixFlags |= flags;
+                }
+
                 goto PREFIX;
 
             case CEE_LDFTN:
